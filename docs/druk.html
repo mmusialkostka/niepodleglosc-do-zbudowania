@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Niepodległość do zbudowania · materiały do druku</title>
+<link rel="stylesheet" href="fonts/fonty.css">
+<style>
+:root{--tusz:#23211e;--szary:#5f594f;--linia:#d9d0bf;--czerwien:#a3171f;--tlo:#f6f2e9;--serif:"Lora",Georgia,serif;--sans:"Inter",system-ui,"Segoe UI",Arial,sans-serif}
+*{box-sizing:border-box}
+html{background:var(--tlo)}
+body{margin:0;font-family:var(--sans);color:var(--tusz);font-size:10pt;line-height:1.42}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0}
+nav{position:sticky;top:0;z-index:2;background:var(--tlo);border-bottom:1px solid var(--linia);padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+nav b{font-family:var(--serif);margin-right:10px}
+nav a,nav button{font:inherit;font-size:13px;border:1px solid #cfc5b2;background:#fffdf8;border-radius:7px;padding:5px 10px;color:var(--tusz);text-decoration:none;cursor:pointer}
+nav a.wl{background:var(--tusz);color:#fff;border-color:var(--tusz)}
+nav .gl{background:var(--czerwien);color:#fff;border-color:var(--czerwien);margin-left:auto}
+.strona{width:210mm;min-height:297mm;margin:16px auto;background:#fff;padding:14mm 15mm;box-shadow:0 2px 14px rgba(0,0,0,.08);position:relative}
+.sek{display:none}.sek.wid{display:block}
+.glowka{white-space:nowrap;gap:10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--tusz);padding-bottom:5px;margin-bottom:12px;font-size:8.5pt;color:var(--szary);letter-spacing:.05em;text-transform:uppercase}
+.glowka b{color:var(--czerwien);font-weight:600}
+h1{font-size:22pt;line-height:1.15;margin-bottom:4px}
+h2{font-size:14pt;margin:14px 0 6px}
+h3{font-size:11.5pt;margin:10px 0 4px}
+p{margin:4px 0}
+ul,ol{margin:4px 0;padding-left:18px}
+li{margin:2px 0}
+.ramka{border-left:3px solid var(--czerwien);background:#faf6ee;padding:7px 11px;margin:8px 0}
+.ramka.cyt{font-family:var(--serif);font-style:italic}
+.mdl{color:var(--szary)}
+table{width:100%;border-collapse:collapse;margin:6px 0}
+td,th{border-top:1px solid var(--linia);padding:5px 6px;vertical-align:top;text-align:left}
+th{font-size:8pt;text-transform:uppercase;letter-spacing:.06em;color:var(--szary);font-weight:600;border-top:0}
+td.cz{white-space:nowrap;color:var(--czerwien);font-weight:600}
+.kroki li{margin:5px 0}
+.kroki b{color:var(--czerwien)}
+/* karty problemów */
+.karty{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:62mm;gap:0;border:1px dashed #999}
+.kp{border:1px dashed #999;padding:7mm 8mm;display:flex;flex-direction:column;position:relative}
+.kp .nr{font-family:var(--serif);font-size:26pt;color:var(--czerwien);line-height:1;font-weight:600}
+.kp h3{font-size:15pt;margin:2px 0 6px}
+.kp p{font-size:11pt;line-height:1.4}
+.kp .st{margin-top:auto;font-size:7.5pt;color:var(--szary);letter-spacing:.08em;text-transform:uppercase}
+.kp.info{background:#faf6ee}
+.kp.info p{font-size:9.5pt;line-height:1.35}
+.kp.info h3{font-size:13pt}
+.zet{display:inline-block;width:9mm;height:9mm;border-radius:50%;border:1.5px solid var(--czerwien);margin-right:3mm;vertical-align:middle}
+/* karta notatek */
+.notatka{border:1.5px solid var(--tusz);padding:6mm 8mm;height:124mm;display:flex;flex-direction:column}
+.notatka + .notatka{margin-top:6mm}
+.wybor{display:grid;grid-template-columns:12mm 1fr;gap:4mm;margin-top:5mm;flex:1}
+.wybor .z{width:11mm;height:11mm;border-radius:50%;border:1.5px solid var(--czerwien);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:var(--czerwien)}
+.linie{border-bottom:1px solid #bbb;height:7.5mm}
+.lin2{display:flex;flex-direction:column}
+.pole{display:flex;gap:4mm;align-items:baseline;font-size:9.5pt}
+.pole span{flex:1;border-bottom:1px solid #bbb;height:6mm}
+/* biogramy */
+.bio{border:1px dashed #999;padding:6mm 7mm;margin-bottom:5mm;break-inside:avoid}
+.bio h3{font-size:14pt;margin:0}
+.bio .lata{color:var(--szary);font-size:9pt}
+.bio .w{font-size:9pt;color:var(--czerwien);text-transform:uppercase;letter-spacing:.06em;margin:3px 0 6px;font-weight:600}
+.bio .pyt{margin-top:7px;font-size:9.5pt}
+.bio ol{font-size:9.5pt;color:var(--szary)}
+.przerwa{break-before:page}
+.qrdruk{display:flex;gap:10mm;align-items:center;margin-top:8px}
+.qrdruk svg{width:42mm;height:42mm}
+@page{size:A4;margin:11mm 13mm}
+@media print{
+  html,body{background:#fff}
+  nav{display:none}
+  .strona{margin:0;box-shadow:none;width:auto;min-height:0;padding:0;break-after:page}
+  .strona:last-child{break-after:auto}
+  .strona.cg{break-after:auto;margin-bottom:6mm}
+  .strona.cg .glowka{display:none}
+  h2,h3{break-after:avoid}
+  tr,.ramka{break-inside:avoid}
+  .sek{display:none}.sek.wid{display:block}
+}
+</style>
+</head>
+<body>
+<nav id="nav"></nav>
+<div id="tresc"></div>
+<script src="tresc.js"></script>
+<script src="ustawienia.js"></script>
+<script src="qrcode.js"></script>
+<script>
+(function(){
+var T=window.TRESC;
+function esc(t){ return String(t==null?"":t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
+function glowka(t){ return '<div class="glowka"><span><b>Niepodległość do zbudowania</b> · 11 listopada</span><span>'+esc(t)+'</span></div>'; }
+var strona=(function(){ var s=(window.USTAWIENIA||{}).STRONA||""; if(/^https?:/.test(location.protocol)) s=location.href.replace(/[#?].*$/,"").replace(/[^\/]*$/,""); return s; })();
+function qr(t){ var q=qrcode(0,"M"); q.addData(t); q.make(); var n=q.getModuleCount(),p=""; for(var r=0;r<n;r++) for(var c=0;c<n;c++) if(q.isDark(r,c)) p+="M"+(c+2)+" "+(r+2)+"h1v1h-1z"; return '<svg viewBox="0 0 '+(n+4)+' '+(n+4)+'" shape-rendering="crispEdges"><path d="'+p+'"/></svg>'; }
+
+var SEK = [
+ {id:"instrukcja", nazwa:"Instrukcja w 5 minut", html:function(){
+   return '<div class="strona">'+glowka("Instrukcja w 5 minut")+
+   '<h1>Jak przeprowadzić tę lekcję</h1><p class="mdl">Dla wychowawcy, który nie zdąży przeczytać całego scenariusza. Nie musisz być historykiem: aplikacja niesie treść, ty prowadzisz rozmowę.</p>'+
+   '<h2>Przed lekcją (15 minut)</h2><ol class="kroki">'+
+   '<li><b>Wydrukuj</b> dla każdej grupy (4–6 grup): komplet 7 kart problemów (1 kartka A4, do pocięcia albo w całości) i kartę notatek. Wszystko jest w tym pliku.</li>'+
+   '<li><b>Otwórz aplikację</b> na komputerze podłączonym do projektora:<div class="qrdruk">'+qr(strona)+'<div><b style="font-size:12pt;color:var(--tusz)">'+esc(strona.replace(/^https?:\/\//,""))+'</b><br><span class="mdl">Działa w każdej przeglądarce. Jeśli w sali nie ma internetu, pobierz folder z aplikacją i otwórz plik index.html (głosowanie wtedy przez podniesienie rąk).</span></div></div></li>'+
+   '<li><b>Na ekranie startowym</b> sprawdź termin (przed czy po 11 listopada), wybierz, czy uczniowie głosują telefonami, i kliknij „Rozpocznij lekcję”. Każda klasa dostaje własny kod. W nowej klasie kliknij „Nowa klasa”.</li></ol>'+
+   '<h2>W czasie lekcji</h2><table><tr><th>Czas</th><th>Etap</th><th>Co robisz</th></tr>'+
+   '<tr><td class="cz">0–5′</td><td><b>1. Wejście</b></td><td>Uczniowie skanują kod QR. Dwa pytania z zaskoczeniem. Kliknij „Pokaż wyniki”, potem „Pokaż odpowiedź”.</td></tr>'+
+   '<tr><td class="cz">5–13′</td><td><b>2. Śledztwo</b></td><td>Klikasz kolejne daty na osi. Klasa głosuje, którą datę wybrałaby na święto; 2–3 osoby uzasadniają.</td></tr>'+
+   '<tr><td class="cz">13–33′</td><td><b>3. Państwo od zera</b></td><td>Grupy mają 3 żetony i wybierają 3 z 7 problemów (minutnik na ekranie). Wpisujesz wybory grup do tabeli. Odsłaniasz karty: co zrobiono naprawdę.</td></tr>'+
+   '<tr><td class="cz">33–43′</td><td><b>4. Zamknięcie</b></td><td>Linia wartości (2–3 tezy, suwak w telefonie, anonimowo). Potem jedno pytanie refleksyjne; odpowiedzi pojawiają się jako karteczki lub chmura.</td></tr>'+
+   '<tr><td class="cz">43–45′</td><td><b>Puenta</b></td><td>Czytasz zdanie z ekranu końcowego. Koniec.</td></tr></table>'+
+   '<h2>Trzy rzeczy, które warto zapamiętać</h2><ul>'+
+   '<li>Klawisz <b>N</b> otwiera ściągę: co powiedzieć, ile to trwa, czego się spodziewać, odpowiedzi na trudne pytania. Klawisz <b>T</b>: trudne pytania uczniów. Klawisz <b>Q</b>: kod QR dla spóźnionych.</li>'+
+   '<li>Gdy brakuje czasu, skracasz etap 2 (sam odsłaniasz odpowiedź bez głosowania). Etapu 4 nie pomijaj: bez niego lekcja wychowawcza staje się lekcją historii.</li>'+
+   '<li>Nie oceniamy ugrupowań ani bieżących sporów. Na pytania o politykę: „Ludzie świętują ten dzień na różne sposoby. Na tej lekcji zajmujemy się tym, co nas łączy.”</li></ul>'+
+   '<div class="ramka">Bez telefonów lekcja działa tak samo: głosowanie przez podniesienie rąk (liczby wpisujesz przyciskami + i −), linia wartości w sali (uczniowie stają między dwiema ścianami), refleksja na karteczkach (kilka wpisujesz do aplikacji).</div></div>';
+ }},
+ {id:"karty", nazwa:"Karty problemów", html:function(){
+   var h='<div class="strona">'+glowka("Karty problemów · komplet dla jednej grupy")+'<div class="karty">';
+   h+='<div class="kp info"><h3 style="margin-top:0">Listopad 1918. Jesteście rządem.</h3><p>Państwo ma siedem wielkich problemów. Sił i pieniędzy starczy na trzy.</p><p style="margin:4px 0"><span class="zet"></span><span class="zet"></span><span class="zet"></span></p><p>Wybierzcie trzy problemy, którymi zajmiecie się <b>najpierw</b>. Każdy wybór uzasadnijcie jednym zdaniem.</p><span class="st">Czas: 8 minut</span></div>';
+   T.karty.forEach(function(k){ h+='<div class="kp"><span class="nr">'+k.nr+'</span><h3>'+esc(k.nazwa)+'</h3><p>'+esc(k.problem)+'</p><span class="st">Karta problemu · listopad 1918</span></div>'; });
+   return h+'</div></div>';
+ }},
+ {id:"notatki", nazwa:"Karta notatek grupy", html:function(){
+   function jedna(){ var h='<div class="notatka"><div style="display:flex;justify-content:space-between;align-items:baseline"><h2 style="margin:0">Karta notatek rządu</h2><div class="pole" style="width:45%"><b>Grupa nr</b><span></span></div></div><p class="mdl">Wybierzcie trzy problemy (numer i nazwa karty) i uzasadnijcie każdy jednym zdaniem.</p>';
+     for(var i=1;i<=3;i++) h+='<div class="wybor"><div class="z">'+i+'</div><div class="lin2"><div class="pole"><b>Problem:</b><span></span></div><div class="linie"></div><div class="linie"></div></div></div>';
+     return h+'<div class="pole" style="margin-top:4mm"><b>Który problem najtrudniej było pominąć?</b><span></span></div></div>'; }
+   return '<div class="strona">'+glowka("Karta notatek · 2 egzemplarze na kartce")+jedna()+jedna()+'</div>';
+ }},
+ {id:"scenariusz", nazwa:"Scenariusz dla wychowawcy", html:function(){
+   var w=T.warianty;
+   var h='<div class="strona cg">'+glowka("Scenariusz")+'<h1>'+esc(T.tytul)+'</h1><p class="mdl">'+esc(T.podtytul)+'. Klasy I–IV liceum · 45 minut · prowadzi wychowawca (nie musi być historykiem).</p>'+
+     '<h2>Idea</h2><p>Uczniowie znają niepodległość jako jeden moment: 11 listopada, Piłsudski, koniec zaborów. Lekcja zmienia tę perspektywę. Niepodległość w 1918 roku nie została „odzyskana” jednego dnia. Była procesem rozłożonym na tygodnie, a potem na lata budowania państwa od zera: z kilkoma walutami, kilkoma systemami prawa, bez ustalonych granic, w biedzie i chorobach. Wniosek wychowawczy: niepodległość trzeba było zbudować i trzeba ją podtrzymywać, a to zadanie wielu ludzi, nie kilku bohaterów.</p>'+
+     '<p><b>Cel wychowawczy, nie wiedza.</b> To nie jest lekcja historii. Fakty są pretekstem do rozmowy o państwie, wspólnocie i odpowiedzialności. Nie ma sprawdzania wiedzy ani ocen.</p>'+
+     '<h2>Cele lekcji</h2><p>Uczeń po lekcji:</p><ul><li>rozumie, że odzyskanie niepodległości było procesem, a data 11 listopada jest umowna;</li><li>potrafi wymienić kilka problemów, z którymi zmierzyło się państwo w 1918 roku;</li><li>dostrzega, że niepodległość budowali ludzie o różnych, często sprzecznych poglądach;</li><li>formułuje własną odpowiedź na pytanie, co dziś znaczy dbać o wspólne państwo.</li></ul>'+
+     '<h2>Przebieg</h2><table><tr><th>Czas</th><th>Etap</th><th>Co się dzieje</th><th>Narzędzie</th></tr>'+
+     '<tr><td class="cz">0–5′</td><td><b>1. Wejście</b></td><td>Dwa szybkie pytania z zaskoczeniem: co właściwie wydarzyło się 11 listopada 1918?</td><td>Głosowanie telefonami</td></tr>'+
+     '<tr><td class="cz">5–13′</td><td><b>2. Śledztwo</b></td><td>Oś wydarzeń jesieni 1918. Klasa wybiera „swoją” datę święta i uzasadnia wybór.</td><td>Oś czasu, głosowanie telefonami</td></tr>'+
+     '<tr><td class="cz">13–33′</td><td><b>3. Państwo od zera</b></td><td>Symulacja w grupach: listopad 1918, siedem problemów, trzy żetony. Wychowawca wpisuje wybory grup, potem odsłona tego, co zrobiono naprawdę.</td><td>Karty problemów (papier), ekran z odsłonami</td></tr>'+
+     '<tr><td class="cz">33–43′</td><td><b>4. Zamknięcie</b></td><td>Linia wartości (2–3 tezy), potem jedno pytanie refleksyjne, odpowiedzi anonimowe.</td><td>Telefony lub karteczki</td></tr>'+
+     '<tr><td class="cz">43–45′</td><td><b>Puenta</b></td><td>Jedno zdanie podsumowania od wychowawcy.</td><td>Ekran końcowy</td></tr></table>'+
+     '<div class="ramka"><b>Zasada czasowa.</b> Rdzeniem jest etap 3. Jeśli lekcja się opóźnia, skraca się etap 2 (wychowawca sam odsłania odpowiedź bez głosowania). Etap 4 nie może zniknąć.</div>'+
+     '<h2>Zdania otwierające i zamykające</h2><table><tr><th></th><th>Otwarcie</th><th>Zamknięcie</th></tr><tr><td><b>Przed 11 XI</b></td><td>„'+esc(w.przed.otwarcie)+'”</td><td>„'+esc(w.przed.zamkniecie)+'”</td></tr><tr><td><b>Po 11 XI</b></td><td>„'+esc(w.po.otwarcie)+'”</td><td>„'+esc(w.po.zamkniecie)+'”</td></tr></table></div>';
+
+   h+='<div class="strona cg">'+glowka("Scenariusz · etapy 1 i 2")+'<h2 style="margin-top:0">Etap 1: Wejście (5 minut)</h2><p>Cel: wybić uczniów z utartego schematu. Większość wybierze odpowiedź „ogłoszono niepodległość”, a to nie jest prawda. Zaskoczenie otwiera ciekawość.</p>'+
+     '<h3>Pytanie 1: '+esc(T.pytanie1.tresc)+'</h3><ol type="A">'+T.pytanie1.opcje.map(function(o,i){return '<li>'+esc(o)+(i===T.pytanie1.poprawna?' <b>(poprawna)</b>':'')+'</li>';}).join("")+'</ol><div class="ramka">'+T.pytanie1.sciaga.slice(0,3).map(esc).join(" ")+' '+esc(T.pytanie1.wyjasnienie)+'</div>'+
+     '<h3>Pytanie 2: '+esc(T.pytanie2.tresc)+'</h3><p>Odpowiedzi: jedna · dwie · cztery lub więcej. '+esc(T.pytanie2.wyjasnienie)+' Pytanie jest mostem do etapu 3.</p><div class="ramka cyt">Przejście: „'+esc(T.pytanie2.przejscie)+'”</div>'+
+     '<h2>Etap 2: Śledztwo „Dlaczego 11 listopada?” (8 minut)</h2><p>Cel: pokazać, że odzyskiwanie niepodległości trwało tygodnie, a wybór daty święta jest umowny i ma swoje uzasadnienie.</p><table><tr><th>Data</th><th>Wydarzenie</th><th>Argument „za tą datą”</th></tr>'+
+     T.os.map(function(p){return '<tr><td class="cz">'+esc(p.data)+'</td><td>'+esc(p.wyd)+'</td><td>'+esc(p.arg)+'</td></tr>';}).join("")+'</table>'+
+     '<p><b>Zadanie dla klasy:</b> '+esc(T.zadanieData)+' Głosowanie telefonami, następnie dwie lub trzy osoby uzasadniają wybór.</p>'+
+     '<div class="ramka"><b>Dlaczego właśnie 11 listopada.</b> '+esc(T.dlaczego11)+'</div><div class="ramka cyt">Wniosek na ekranie: „'+esc(T.wniosek2)+'”</div></div>';
+
+   h+='<div class="strona cg">'+glowka("Scenariusz · etap 3")+'<h2 style="margin-top:0">Etap 3: Symulacja „Państwo od zera” (20 minut)</h2><p>Cel: uczniowie doświadczają skali zadania, przed którym stanęło nowe państwo, i dochodzą do wniosku, że nie da się go wykonać w pojedynkę ani po kolei.</p>'+
+     '<ol class="kroki"><li><b>Podział (2′):</b> klasa dzieli się na 4–6 grup. Każda grupa to „rząd” w listopadzie 1918 i dostaje komplet siedmiu kart problemów (druk A4).</li><li><b>Decyzja (8′):</b> grupa ma tylko 3 żetony (siły i pieniądze państwa). Wybiera trzy problemy, którymi zajmie się najpierw, i w jednym zdaniu uzasadnia każdy wybór.</li><li><b>Zestawienie (3′):</b> wychowawca wpisuje wybory grup do aplikacji. Ekran pokazuje, które problemy wybrano najczęściej, a które pominięto.</li><li><b>Odsłona (5′):</b> wychowawca klika kolejne karty. Każda odsłania, co działo się naprawdę i co groziło, gdyby problem zignorować.</li><li><b>Puenta (2′):</b> „'+esc(T.puentaSymulacji)+'”</li></ol>'+
+     '<table><tr><th>Problem</th><th>Co zrobiono</th><th>Co groziło</th></tr>'+T.karty.map(function(k){return '<tr><td><b>'+k.nr+'. '+esc(k.nazwa)+'</b></td><td>'+esc(k.zrobiono)+'</td><td>'+esc(k.grozilo)+'</td></tr>';}).join("")+'</table>'+
+     '<h3>Pytania do omówienia</h3><ul>'+T.pytaniaOmowienie.map(function(p){return '<li>'+esc(p)+'</li>';}).join("")+'</ul><div class="ramka"><b>Puenta wychowawcza.</b> '+esc(T.puentaWychowawcza)+'</div></div>';
+
+   h+='<div class="strona cg">'+glowka("Scenariusz · etap 4 i trudne pytania")+'<h2 style="margin-top:0">Etap 4: Zamknięcie (10 minut)</h2><p>Cel: przeniesienie wniosku z 1918 roku na współczesność. Każdy uczeń formułuje własną, krótką odpowiedź.</p>'+
+     '<h3>Linia wartości (4 minuty)</h3><p>Wychowawca wybiera 2–3 tezy. Uczniowie na telefonie przesuwają suwak od „zdecydowanie się nie zgadzam” do „zdecydowanie się zgadzam”; na ekranie pojawiają się anonimowe kropki. Bez telefonów: uczniowie stają w sali między dwiema ścianami. Po każdej tezie jedno pytanie: „Dlaczego ktoś mógłby stanąć po drugiej stronie?”</p><ul>'+T.linia.tezy.map(function(t){return '<li>„'+esc(t)+'”</li>';}).join("")+'</ul><p class="mdl">'+T.linia.zasady.map(esc).join(" ")+'</p>'+
+     '<h3>Pytanie refleksyjne (5 minut, jedno do wyboru)</h3><ul>'+T.refleksja.map(function(t){return '<li>„'+esc(t)+'”</li>';}).join("")+'</ul><p>Odpowiedzi anonimowe, krótkie (do kilku słów), wysyłane telefonem i wyświetlane jako chmura lub ściana karteczek. Wychowawca czyta na głos kilka odpowiedzi. Bez debaty, bez oceniania. Kliknięcie karteczki ukrywa ją; wulgaryzmy są maskowane automatycznie.</p>'+
+     '<p><b>Plan awaryjny bez telefonów:</b> karteczki samoprzylepne lub kartki A6. Wychowawca zbiera je, czyta kilka losowych na głos i może wpisać je do aplikacji.</p><p><b>Zakończenie:</b> ekran końcowy z jednym zdaniem i datą.</p>'+
+     '<h2>Ściąga: trudne pytania uczniów</h2>'+T.trudne.map(function(x){return '<h3>Uczeń: '+esc(x.p)+'</h3><p>'+esc(x.o)+'</p>';}).join("")+'</div>';
+
+   h+='<div class="strona cg">'+glowka("Scenariusz · moduły opcjonalne")+'<h2 style="margin-top:0">Moduł A: „Wiele twarzy niepodległości” (15–20 minut)</h2><p>Na drugą godzinę lub zamiast etapu 2. Grupy dostają biogramy i pytania: kim był, jakie miał poglądy, jak przyczynił się do niepodległości, z kim się spierał. Na koniec klasa szuka odpowiedzi na pytanie: '+esc(T.pytanieModuluA.toLowerCase())+'</p><table><tr><th>Postać</th><th>Wątek przewodni</th></tr>'+T.postacie.map(function(p){return '<tr><td><b>'+esc(p.imie)+'</b></td><td>'+esc(p.watek)+'</td></tr>';}).join("")+'</table>'+
+     '<h2>Moduł B: „Historia samego święta” (5 minut)</h2><table><tr><th>Rok</th><th>Wydarzenie</th></tr>'+T.historiaSwieta.map(function(x){return '<tr><td class="cz">'+esc(x.rok)+'</td><td>'+esc(x.txt)+'</td></tr>';}).join("")+'</table><div class="ramka">'+esc(T.wniosekB)+'</div>'+
+     '<h2>Głosowanie telefonami: jak to działa</h2><p>Uczniowie skanują kod QR i otwierają prostą stronę bez logowania. Pytania zmieniają się na telefonach same, gdy wychowawca przechodzi do kolejnych ekranów. Każda lekcja ma osobny kod klasy, a głosy znikają po 6 godzinach. Nie są zbierane imiona ani dane osobowe. Bez internetu aplikacja działa w trybie ręcznym.</p></div>';
+   return h;
+ }},
+ {id:"biogramy", nazwa:"Biogramy (moduł A)", html:function(){
+   var h='<div class="strona">'+glowka("Moduł A · biogramy do pocięcia")+'<h1 style="font-size:17pt">Wiele twarzy niepodległości</h1><p class="mdl" style="margin-bottom:8px">Przeczytajcie biogram i odpowiedzcie krótko: 1. Kim był(a)? 2. Jakie miał(a) poglądy? 3. Jak przyczynił(a) się do niepodległości? 4. Z kim się spierał(a)?</p>';
+   T.postacie.forEach(function(p,i){ if(i===3||i===6) h+='</div><div class="strona">'+glowka("Moduł A · biogramy do pocięcia");
+     h+='<div class="bio"><h3>'+esc(p.imie)+'</h3><div class="lata">'+esc(p.lata)+'</div><div class="w">'+esc(p.watek)+'</div><p>'+esc(p.bio)+'</p><p class="pyt"><b>Pytanie dla grupy:</b> '+esc(p.pytanie)+'</p></div>'; });
+   return h+'<div class="ramka"><b>Na koniec cała klasa:</b> '+esc(T.pytanieModuluA)+'</div></div>';
+ }}
+];
+
+var par=new URLSearchParams(location.search).get("sekcja");
+var wyb = par || (location.hash||"").slice(1) || "instrukcja";
+function rysuj(){
+  document.getElementById("nav").innerHTML='<b>Materiały do druku</b>'+SEK.map(function(s){ return '<a href="#'+s.id+'" class="'+(s.id===wyb?"wl":"")+'">'+esc(s.nazwa)+'</a>'; }).join("")+'<a href="#wszystko" class="'+(wyb==="wszystko"?"wl":"")+'">Wszystko</a><a href="pdf/'+(SEK.some(function(s){return s.id===wyb;})?wyb:"wszystko")+'.pdf" download style="margin-left:auto">Pobierz PDF</a><button class="gl" style="margin-left:0" onclick="window.print()">Drukuj widoczne</button>';
+  document.getElementById("tresc").innerHTML=SEK.map(function(s){ return '<section class="sek'+(wyb===s.id||wyb==="wszystko"?" wid":"")+'" id="s-'+s.id+'">'+s.html()+'</section>'; }).join("");
+}
+window.addEventListener("hashchange",function(){ wyb=(location.hash||"#instrukcja").slice(1); rysuj(); scrollTo(0,0); });
+rysuj();
+})();
+</script>
+</body>
+</html>
