@@ -12,17 +12,16 @@ Prowadzi wychowawca, który nie musi być historykiem: aplikacja niesie treść,
 |---|---|---|
 | 0–5′ | 1. Wejście | Dwa pytania z zaskoczeniem, głosowanie telefonami |
 | 5–13′ | 2. Śledztwo | Oś wydarzeń jesieni 1918, klasa wybiera „swoją” datę święta |
-| 13–33′ | 3. Państwo od zera | Symulacja w grupach: 7 problemów, 3 żetony, potem odsłona |
-| 33–43′ | 4. Zamknięcie | Linia wartości i anonimowa refleksja (ściana karteczek lub chmura) |
+| 13–28′ | 3. Państwo od zera | Symulacja w grupach: 7 problemów, 3 żetony, potem odsłona |
+| 28–33′ | 4. Zamknięcie | Linia wartości i anonimowa refleksja (ściana karteczek lub chmura) |
+| 33–43′ | 5. Wiele twarzy | Postacie z 1918 r., potem zwrot akcji: współcześni politycy i pytanie o porozumienie |
 | 43–45′ | Puenta | Jedno zdanie na ekranie końcowym |
-
-Moduły dodatkowe: A „Wiele twarzy niepodległości” (biogramy), B „Historia samego święta”.
 
 ## Jak użyć (wychowawca)
 
 1. Wydrukuj z `druk.html`: karty problemów (1 komplet na grupę) i kartę notatek.
 2. Otwórz aplikację na komputerze z projektorem, wybierz termin (przed / po 11 listopada) i kliknij „Rozpocznij lekcję”.
-3. Klawisze: `→` dalej, `N` ściąga dla wychowawcy, `T` trudne pytania, `Q` kod QR, `F` pełny ekran.
+3. Przyciski sterowania pojawiają się po najechaniu na dół ekranu. Klawisze: `→` dalej, `N` ściąga dla wychowawcy, `T` trudne pytania, `Q` kod QR, `F` pełny ekran.
 
 Bez internetu i bez telefonów lekcja działa w trybie ręcznym (głosy wpisuje się przyciskami + i −).
 
@@ -47,4 +46,4 @@ Bez internetu i bez telefonów lekcja działa w trybie ręcznym (głosy wpisuje 
 `python serwer_testowy.py docs 8810` uruchamia stronę z atrapą zaplecza pod `/mock`
 (do testów wpisz tymczasowo `ADRES: "/mock"` w `ustawienia.js`).
 
-Materiał uniwersalny, bez odniesień do konkretnej szkoły. Kod QR: biblioteka qrcode-generator (Kazuhiko Arase, licencja MIT). Kroje: Oswald, Inter i Lora (SIL Open Font License). Zdjęcia z epoki: Wikimedia Commons, domena publiczna i CC0 (lista w `docs/img/zrodla.js` i w scenariuszu).
+Materiał uniwersalny, bez odniesień do konkretnej szkoły. Kod QR: biblioteka qrcode-generator (Kazuhiko Arase, licencja MIT). Kroje: Oswald, Inter i Lora (SIL Open Font License). Zdjęcia: Wikimedia Commons (z epoki: domena publiczna i CC0; współczesne: CC BY / CC BY-SA z podaniem autora) (lista w `docs/img/zrodla.js` i w scenariuszu).

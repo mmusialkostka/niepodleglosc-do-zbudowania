@@ -1,4 +1,4 @@
-/* Zdjęcia: Wikimedia Commons (domena publiczna / CC0). Wygenerowane automatycznie. */
+/* Zdjęcia: Wikimedia Commons (licencje przy każdym zdjęciu). */
 window.FOTO = {
  "rozbrajanie": {
   "opis": "Rozbrajanie żołnierzy niemieckich w Warszawie, listopad 1918",
@@ -158,6 +158,110 @@ window.FOTO = {
   "licencja": "domena publiczna",
   "zrodlo": "https://commons.wikimedia.org/wiki/File:Wladyslaw_Grabski_ca_1930_(777649)_(cropped).jpg",
   "w": 1274,
+  "h": 1600
+ },
+ "nawrocki": {
+  "opis": "Karol Nawrocki",
+  "autor": "The White House",
+  "licencja": "domena publiczna",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Karol_Nawrocki_(2025)_(cropped).jpg",
+  "w": 513,
+  "h": 674
+ },
+ "tusk": {
+  "opis": "Donald Tusk",
+  "autor": "Kancelaria Prezesa Rady Ministrów",
+  "licencja": "CC BY 3.0 pl",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Donald_Tusk_KPRM_HQ.jpg",
+  "w": 686,
+  "h": 900
+ },
+ "zandberg": {
+  "opis": "Adrian Zandberg",
+  "autor": "Adrian Grycuk",
+  "licencja": "CC BY-SA 3.0 pl",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Adrian_Zandberg_Sejm_2020.jpg",
+  "w": 678,
+  "h": 900
+ },
+ "bosak": {
+  "opis": "Krzysztof Bosak",
+  "autor": "Elekes Andor",
+  "licencja": "CC BY 4.0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Krzysztof_Bosak.jpg",
+  "w": 596,
+  "h": 900
+ },
+ "kosiniak": {
+  "opis": "Władysław Kosiniak-Kamysz",
+  "autor": "Krzysztof Niedziela (Verconer)",
+  "licencja": "CC BY-SA 4.0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:W%C5%82adys%C5%82aw_Kosiniak-Kamysz,_Pose%C5%82_na_Sejm_RP,_Prezes_Polskiego_Stronnictwa_Ludowego.jpg",
+  "w": 600,
+  "h": 900
+ },
+ "kaczynski": {
+  "opis": "Jarosław Kaczyński",
+  "autor": "Kancelaria Prezesa Rady Ministrów",
+  "licencja": "CC BY 3.0 pl",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:02_Jaros%C5%82aw_Kaczy%C5%84ski_(cropped).jpg",
+  "w": 482,
+  "h": 627
+ },
+ "nowacka": {
+  "opis": "Barbara Nowacka",
+  "autor": "Kancelaria Prezesa Rady Ministrów",
+  "licencja": "CC BY 3.0 pl",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Min._Barbara_Nowacka.jpg",
+  "w": 663,
+  "h": 900
+ },
+ "holownia": {
+  "opis": "Szymon Hołownia",
+  "autor": "Adrian Grycuk",
+  "licencja": "CC BY-SA 3.0 pl",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Szymon_Ho%C5%82ownia_2022.jpg",
+  "w": 698,
+  "h": 900
+ },
+ "czarzasty": {
+  "opis": "Włodzimierz Czarzasty",
+  "autor": "Zack Masternak",
+  "licencja": "domena publiczna",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:W%C5%82odzimierz_Czarzasty_2025_(cropped).jpg",
+  "w": 665,
+  "h": 900
+ },
+ "mentzen": {
+  "opis": "Sławomir Mentzen",
+  "autor": "CzarneckiRadek",
+  "licencja": "CC BY-SA 4.0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:S%C5%82awomir_Mentzen_2_(cropped).jpg",
+  "w": 675,
+  "h": 900
+ },
+ "morawiecki": {
+  "opis": "Mateusz Morawiecki",
+  "autor": "Krystian Maj",
+  "licencja": "CC0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Morawiecki_Mateusz_2.jpg",
+  "w": 491,
+  "h": 740
+ },
+ "trzaskowski": {
+  "opis": "Rafał Trzaskowski",
+  "autor": "Adrian Tync",
+  "licencja": "CC BY-SA 4.0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Rafal_Trzaskowski_2020_Bytom.jpg",
+  "w": 600,
+  "h": 900
+ },
+ "protest2020": {
+  "opis": "Protest Strajku Kobiet w Warszawie, 30 października 2020",
+  "autor": "RoodyAlien",
+  "licencja": "CC BY 4.0",
+  "zrodlo": "https://commons.wikimedia.org/wiki/File:Protest_of_All-Poland_Women%27s_Strike_in_Warsaw_(October_30,_2020)_06.jpg",
+  "w": 1600,
   "h": 1600
  }
 };

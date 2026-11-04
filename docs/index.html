@@ -42,7 +42,7 @@ a{color:var(--czerwien2)}
 #zegar{font-variant-numeric:tabular-nums}
 
 /* ---------- scena ---------- */
-#scena{position:absolute;top:calc(var(--u)*4.4);bottom:calc(var(--u)*4.2);left:0;right:0;display:flex;justify-content:center;overflow:auto;overflow-x:hidden}
+#scena{position:absolute;top:calc(var(--u)*4.4);bottom:0;left:0;right:0;display:flex;justify-content:center;overflow:auto;overflow-x:hidden}
 #ekran{width:min(100%,calc(var(--u)*150));padding:calc(var(--u)*2.6) calc(var(--u)*4) calc(var(--u)*2);display:flex;flex-direction:column;min-height:100%}
 #ekran>*:not(.foto-tlo):not(.podpis){position:relative;z-index:1}
 .ekran-in>*:not(.foto-tlo):not(.podpis){animation:wej .45s ease-out both}
@@ -126,7 +126,7 @@ a{color:var(--czerwien2)}
 .odp-z-foto .fig{height:calc(var(--u)*16)}
 
 /* ---------- oś czasu ---------- */
-.os{display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--linia2);margin-bottom:calc(var(--u)*1.6)}
+.os{position:relative;z-index:3;display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--linia2);margin-bottom:calc(var(--u)*1.6)}
 .punkt{border:0;background:transparent;padding:calc(var(--u)*.7) 0 0;text-align:left;position:relative;font-family:var(--cond);color:var(--jasny);letter-spacing:.04em}
 .punkt:before{content:"";position:absolute;top:-1px;left:0;right:calc(var(--u)*1);height:3px;background:transparent;transition:background .2s}
 .punkt i{display:none}
@@ -137,7 +137,7 @@ a{color:var(--czerwien2)}
 .punkt.jedenasty span{color:var(--czerwien2)}
 .os-opis{flex:1;min-height:0}
 .os-det{display:grid;grid-template-columns:auto 1fr calc(var(--u)*30);gap:calc(var(--u)*2.6);align-items:start;height:100%}
-.os-det .dzien{font-family:var(--cond);line-height:.8;text-align:left}
+.os-det .dzien{pointer-events:none;font-family:var(--cond);line-height:.8;text-align:left}
 .os-det .dzien b{display:block;font-size:11em;font-weight:500;color:transparent;-webkit-text-stroke:2px var(--tusz)}
 .os-det .dzien span{display:block;font-size:1.2em;letter-spacing:.2em;color:var(--czerwien);margin-top:.9em;font-weight:400}
 .os-det .wyd{font-family:var(--cond);font-weight:300;font-size:1.75em;line-height:1.28}
@@ -160,7 +160,7 @@ a{color:var(--czerwien2)}
 .krok:before{counter-increment:k;content:"0" counter(k);font-family:var(--cond);font-size:1.3em;color:var(--czerwien);font-weight:500}
 .krok .cz{font-family:var(--cond);font-size:.8em;color:var(--szary);letter-spacing:.08em;text-transform:uppercase}
 .minutnik{font-family:var(--cond);font-size:9em;font-weight:300;line-height:1;font-variant-numeric:tabular-nums;text-align:center;letter-spacing:-.01em}
-.minutnik.koniec{color:var(--czerwien)}
+.minutnik.po-czasie{color:var(--czerwien)}
 .zetony{display:flex;gap:.6em;justify-content:center;margin:calc(var(--u)*.6) 0 calc(var(--u)*1)}
 .zetony i{width:calc(var(--u)*2.6);height:calc(var(--u)*2.6);border-radius:50%;background:var(--czerwien)}
 .sym-prawa{border:1px solid var(--linia2);background:rgba(13,12,11,.6);padding:calc(var(--u)*2);text-align:center}
@@ -241,6 +241,18 @@ a{color:var(--czerwien2)}
 .historia b{font-family:var(--cond);font-size:2em;font-weight:500;color:transparent;-webkit-text-stroke:1.5px var(--tusz);line-height:1}
 .historia div:nth-child(2) b,.historia div:nth-child(5) b{-webkit-text-stroke:0;color:var(--czerwien)}
 
+/* ---------- zwrot akcji ---------- */
+.zwrot{display:grid;grid-template-columns:repeat(12,1fr);gap:calc(var(--u)*.5);margin-top:calc(var(--u)*.4)}
+.osoba{display:flex;flex-direction:column;gap:.3em;animation:obrot .7s cubic-bezier(.2,.7,.2,1) both}
+.osoba img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.1)}
+.osoba span{font-family:var(--cond);text-transform:uppercase;letter-spacing:.02em;font-size:.6em;line-height:1.15}
+@keyframes obrot{from{opacity:0;transform:perspective(800px) rotateY(90deg)}to{opacity:1;transform:none}}
+#ekran>div.puenta-zwrot.puenta-zwrot{position:relative;margin-top:calc(var(--u)*2.2);width:100%;background:rgba(13,12,11,.95);border:1px solid var(--linia2);border-top:4px solid var(--czerwien);padding:calc(var(--u)*2.4) calc(var(--u)*3);box-shadow:0 30px 80px rgba(0,0,0,.75);z-index:5;animation:wyskok .6s cubic-bezier(.2,.8,.2,1) 2.2s both}
+.puenta-zwrot h2{font-size:3em;margin-bottom:.3em}
+.puenta-zwrot p{margin:0 0 .8em;font-size:1.05em;color:var(--szary)}
+.puenta-zwrot .pyt{font-family:var(--cond);font-weight:300;font-size:2.3em;line-height:1.2;color:var(--tusz);text-transform:uppercase;margin:0;border-left:3px solid var(--czerwien);padding-left:calc(var(--u)*1.4)}
+@keyframes wyskok{from{opacity:0;transform:translateY(30px) scale(.98)}to{opacity:1;transform:none}}
+
 /* ---------- koniec ---------- */
 .koniec{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:calc(var(--u)*2.4);max-width:70%}
 .koniec .zd{font-family:var(--cond);font-weight:300;font-size:3em;line-height:1.15;text-transform:uppercase;border-left:3px solid var(--czerwien);padding-left:calc(var(--u)*2)}
@@ -249,14 +261,16 @@ a{color:var(--czerwien2)}
 .koniec .pas2 i{flex:1;background:#fff}.koniec .pas2 i+i{background:var(--czerwien)}
 
 /* ---------- dolny pasek ---------- */
-#dol{position:fixed;bottom:0;left:0;right:0;height:calc(var(--u)*4.2);display:flex;align-items:center;gap:calc(var(--u)*.8);padding:0 calc(var(--u)*2);border-top:1px solid var(--linia);background:var(--tlo);z-index:5}
+#dol{transform:translateY(100%);transition:transform .25s ease;position:fixed;bottom:0;left:0;right:0;height:calc(var(--u)*4.2);display:flex;align-items:center;gap:calc(var(--u)*.8);padding:0 calc(var(--u)*2);border-top:1px solid var(--linia);background:var(--tlo);z-index:5}
 #dol .btn{font-size:.68em}
 #nr{font-family:var(--cond);font-size:.75em;color:var(--szary);font-variant-numeric:tabular-nums;margin:0 .5em;letter-spacing:.08em}
 .odstep{flex:1}
+#dol.wid{transform:none;box-shadow:0 -10px 30px rgba(0,0,0,.5)}
+#strefa{position:fixed;left:0;right:0;bottom:0;height:calc(var(--u)*3);z-index:4}
 kbd{font-family:var(--sans);font-size:.85em;border:1px solid var(--linia2);padding:0 .35em;margin-left:.3em;text-transform:none;color:var(--szary)}
 
 /* ---------- panel nauczyciela (jasny, jak kartka) ---------- */
-#panel{position:fixed;top:calc(var(--u)*4.4);bottom:calc(var(--u)*4.2);right:0;width:min(34vw,560px);background:#efe9df;color:#1f1d1a;z-index:6;transform:translateX(102%);transition:transform .3s ease;overflow:auto;padding:calc(var(--u)*1.6);font-size:.82em;box-shadow:-10px 0 40px rgba(0,0,0,.5)}
+#panel{position:fixed;top:calc(var(--u)*4.4);bottom:0;right:0;width:min(34vw,560px);background:#efe9df;color:#1f1d1a;z-index:6;transform:translateX(102%);transition:transform .3s ease;overflow:auto;padding:calc(var(--u)*1.6);font-size:.82em;box-shadow:-10px 0 40px rgba(0,0,0,.5)}
 #panel.otw{transform:none}
 #panel h2{font-size:1.6em;color:#1f1d1a;margin-bottom:.2em}
 #panel h4{font-family:var(--cond);font-weight:500;font-size:.75em;letter-spacing:.14em;text-transform:uppercase;color:var(--czerwienG);margin:1.3em 0 .4em}
@@ -266,7 +280,7 @@ kbd{font-family:var(--sans);font-size:.85em;border:1px solid var(--linia2);paddi
 #panel .btn{color:#1f1d1a;border-color:#bdb4a5}
 #panel .tmr{display:flex;align-items:center;gap:.6em;background:#fff;padding:.6em .8em;margin-top:.6em}
 #panel .tmr .t{font-family:var(--cond);font-size:2em;font-variant-numeric:tabular-nums;min-width:3em}
-#panel .tmr.koniec .t{color:var(--czerwienG)}
+#panel .tmr.po-czasie .t{color:var(--czerwienG)}
 #panel .czas{color:#6b645a}
 #panel details{border-top:1px solid #d6cdbd;padding:.45em 0}
 #panel summary{cursor:pointer;font-weight:600}
@@ -296,6 +310,7 @@ kbd{font-family:var(--sans);font-size:.85em;border:1px solid var(--linia2);paddi
   <span class="chip" title="Czas od rozpoczęcia lekcji"><span id="zegar">0:00</span></span>
 </header>
 <main id="scena"><div id="ekran"></div></main>
+<div id="strefa"></div>
 <footer id="dol">
   <button class="btn" id="wstecz" title="Poprzedni ekran (←)">← Wstecz</button>
   <span id="nr"></span>
@@ -327,8 +342,8 @@ function nowyKod(){ var a="ABCDEFGHJKLMNPRSTUWXYZ23456789", s=""; for(var i=0;i<
 function nowyTok(){ return Math.random().toString(36).slice(2)+Date.now().toString(36); }
 function domyslny(){
   var d=new Date(); var przed = (d.getMonth()<10) || (d.getMonth()===10 && d.getDate()<11);
-  return { wariant: przed?"przed":"po", modA:false, modB:false, reczny: !ADRES, kod:nowyKod(), tok:nowyTok(),
-    idx:0, start:0, odsl:{}, man:{}, grupy:{n:5, wyb:[]}, odwr:{}, teza:0, ref:0, karta:-1, notatki:[], ukryte:{}, widok:"sciana", zaslona:false, os:-1, osWid:{}, postac:-1 };
+  return { wariant: przed?"przed":"po", reczny: !ADRES, kod:nowyKod(), tok:nowyTok(),
+    idx:0, start:0, odsl:{}, man:{}, grupy:{n:5, wyb:[]}, odwr:{}, teza:0, ref:0, karta:-1, zwrot:0, notatki:[], ukryte:{}, widok:"sciana", zaslona:false, os:-1, osWid:{}, postac:-1 };
 }
 var S;
 try { S = JSON.parse(localStorage.getItem(KLUCZ)) || domyslny(); } catch(e){ S = domyslny(); }
@@ -424,7 +439,7 @@ function dzwonek(){
 }
 function tik(){
   for (var n in MIN){ var m=MIN[n]; if(m.run && m.end-Date.now()<=0){ m.run=false; m.left=0; if(!m.dz){ m.dz=true; dzwonek(); toast("Koniec czasu"); } } }
-  document.querySelectorAll("[data-min]").forEach(function(el){ var n=el.getAttribute("data-min"); el.textContent=mmss(minPoz(n)); var k=MIN[n]&&MIN[n].left<=0&&!MIN[n].run; el.closest(".tmr,.minutnik") && el.closest(".tmr,.minutnik").classList.toggle("koniec", !!k); if(el.classList.contains("minutnik")) el.classList.toggle("koniec",!!k); });
+  document.querySelectorAll("[data-min]").forEach(function(el){ var n=el.getAttribute("data-min"); el.textContent=mmss(minPoz(n)); var k=MIN[n]&&MIN[n].left<=0&&!MIN[n].run; el.closest(".tmr,.minutnik") && el.closest(".tmr,.minutnik").classList.toggle("po-czasie", !!k); });
   document.querySelectorAll("[data-minbtn]").forEach(function(b){ var m=MIN[b.getAttribute("data-minbtn")]; b.textContent = m&&m.run ? "Pauza" : "Start"; });
   $("#zegar").textContent = S.start ? mmss(Date.now()-S.start) : "0:00";
 }
@@ -435,10 +450,10 @@ var ETAPY = [
   {id:"s", nazwa:"Start", min:0},
   {id:"1", nazwa:"1. Wejście", min:5},
   {id:"2", nazwa:"2. Śledztwo", min:8},
-  {id:"3", nazwa:"3. Państwo od zera", min:20},
-  {id:"4", nazwa:"4. Zamknięcie", min:10},
-  {id:"p", nazwa:"Puenta", min:2},
-  {id:"m", nazwa:"Moduł A", min:20}
+  {id:"3", nazwa:"3. Państwo od zera", min:15},
+  {id:"4", nazwa:"4. Zamknięcie", min:5},
+  {id:"m", nazwa:"5. Wiele twarzy", min:10},
+  {id:"p", nazwa:"Puenta", min:2}
 ];
 
 /* ================= ekrany ================= */
@@ -482,7 +497,6 @@ var EKR_WSZ = [
         '</div>'+
         '<div class="ustaw">'+
           '<h3>Termin</h3><div class="przel"><button data-wariant="przed" class="'+(w==="przed"?"wl":"")+'">Przed 11 listopada</button><button data-wariant="po" class="'+(w==="po"?"wl":"")+'">Po 11 listopada</button></div>'+
-          '<h3>Moduły</h3><div class="przel"><button data-mod="modB" class="'+(S.modB?"wl":"")+'">B · Historia święta</button><button data-mod="modA" class="'+(S.modA?"wl":"")+'">A · Wiele twarzy niepodległości</button></div>'+
           '<h3>Głosowanie</h3>'+(ADRES?
             '<div><div class="przel"><button data-tryb="tel" class="'+(!S.reczny?"wl":"")+'">Telefony (kod QR)</button><button data-tryb="rek" class="'+(S.reczny?"wl":"")+'">Tylko ręcznie</button></div>'+
             '<div class="mini" style="margin-top:.4em">'+(!S.reczny?'Kod tej klasy: <span class="kodsesji">'+S.kod+'</span> · <a href="#" data-akcja="nowa">Nowa klasa</a> (czyści wyniki)':'Głosy wpisujesz przyciskami + i −. Działa bez internetu.')+'</div></div>'
@@ -500,8 +514,8 @@ var EKR_WSZ = [
     cur:function(){return {id:"czekaj1",typ:"czekaj",tresc:"Jesteś połączony. Za chwilę pierwsze pytanie."};},
     html:function(){
       var tel=NA_ZYWO();
-      return fotoTlo("rozbrajanie","pelne")+etyk("Etap 1 · Wejście","5 minut")+'<div class="kolumny"><div><p class="lead">„'+esc(wariant().otwarcie)+'”</p>'+
-        (tel?'<p class="mdl" style="margin-top:1.4em;max-width:30em">Zeskanujcie kod telefonem. Pytania będą pojawiać się same, nie trzeba niczego instalować ani się logować. Głosowanie jest anonimowe.</p>'
+      return fotoTlo("rozbrajanie","pelne")+etyk("Etap 1 · Wejście")+'<div class="kolumny"><div><p class="lead">„'+esc(wariant().otwarcie)+'”</p>'+
+        (tel?''
             :'<p class="mdl" style="margin-top:1.4em">Za chwilę dwa szybkie pytania.</p>')+
         '</div>'+(tel? blokQR() : '<div class="wniosek duzy" style="font-size:2.2em">Co właściwie wydarzyło się 11 listopada 1918 roku?</div>')+'</div>';
     },
@@ -521,8 +535,8 @@ var EKR_WSZ = [
       h+='</div>';
       return h;
     },
-    dalej:function(){ if(Object.keys(S.osWid).length<T.os.length){ var i=S.os+1; while(S.osWid[i]&&i<T.os.length) i++; if(i>=T.os.length) return false; S.os=i; S.osWid[i]=1; zapisz(); odswiez(); return true; } return false; },
-    wstecz:function(){ return false; },
+    dalej:function(){ if(S.os<T.os.length-1){ S.os++; S.osWid[S.os]=1; zapisz(); odswiez(); return true; } return false; },
+    wstecz:function(){ if(S.os>0){ S.os--; zapisz(); odswiez(); return true; } return false; },
     sciaga:{czas:"4 min", powiedz:["Niepodległość nie przyszła jednego dnia. Zobaczmy, co działo się jesienią 1918 roku."],
       oczekuj:["Przechodź po kolei przez daty (klawisz → odsłania następną). Przy każdej przeczytaj krótko wydarzenie i argument.","Uczniowie mogą zapisywać sobie datę, która najbardziej ich przekonuje."],
       uwagi:["Jeśli brakuje czasu: pokaż tylko 7 X, 11 XI i 28 XI i od razu przejdź do głosowania.","Rada Regencyjna: organ powołany przez Niemcy i Austro-Węgry w 1917 r., ale złożony z Polaków."]}
@@ -548,31 +562,23 @@ var EKR_WSZ = [
   },
   { id:"wniosek2", etap:"2", cur:function(){return {id:"czekaj3",typ:"czekaj",tresc:"Patrz na ekran."};},
     html:function(){ return fotoTlo("compiegne","pelne")+etyk("Etap 2 · Wniosek")+'<div style="flex:1;display:flex;align-items:center;max-width:62%"><div class="wniosek duzy">'+esc(T.wniosek2)+'</div></div>'; },
-    sciaga:{czas:"1 min", powiedz:["Przeczytaj wniosek na głos.","„A teraz sprawdzimy, jak trudna była ta najtrudniejsza część.”"], oczekuj:[], uwagi:["Jeśli włączony jest moduł B, następny ekran to krótka historia samego święta (5 min)."]}
-  },
-  { id:"modB", etap:"2", modul:"modB", cur:function(){return {id:"czekaj4",typ:"czekaj",tresc:"Patrz na ekran."};},
-    html:function(){
-      var h=etyk("Moduł B","Historia samego święta")+'<h2 class="ekran-tyt">Święto, które też trzeba było odzyskać</h2><div class="historia">';
-      T.historiaSwieta.forEach(function(x){ h+='<div><b>'+esc(x.rok)+'</b><span>'+esc(x.txt)+'</span></div>'; });
-      return h+'</div><div class="wniosek" style="margin-top:1.4em">'+esc(T.wniosekB)+'</div>';
-    },
-    sciaga:{czas:"5 min (poza planem 45 min)", powiedz:["Samo święto też ma swoją historię."], oczekuj:["Pytanie do klasy: dlaczego w PRL ludzie świętowali 11 listopada mimo zakazu?"], uwagi:["22 lipca 1944 r. ogłoszono manifest PKWN. W PRL był to główny dzień państwowy."]}
+    sciaga:{czas:"1 min", powiedz:["Przeczytaj wniosek na głos.","„A teraz sprawdzimy, jak trudna była ta najtrudniejsza część.”"], oczekuj:[], uwagi:[]}
   },
   { id:"sym", etap:"3", cur:function(){return {id:"czekaj5",typ:"czekaj",tresc:"Pracujecie w grupach na papierowych kartach. Telefon odłóż na chwilę."};},
     html:function(){
-      return fotoTlo("haller","slabe")+etyk("Etap 3 · Symulacja","Państwo od zera · 20 minut")+'<div class="kolumny" style="align-items:start"><div><h2 class="ekran-tyt" style="font-size:3.2em">Jest listopad 1918. Jesteście rządem.</h2>'+
+      return fotoTlo("haller","slabe")+etyk("Etap 3 · Symulacja","Państwo od zera")+'<div class="kolumny" style="align-items:start"><div><h2 class="ekran-tyt" style="font-size:3.2em">Jest listopad 1918. Jesteście rządem.</h2>'+
         '<div class="kroki">'+
-          '<div class="krok"><span>Podzielcie się na grupy. Każda grupa to rząd odrodzonej Polski i dostaje 7 kart problemów.</span><span class="cz">2 min</span></div>'+
-          '<div class="krok"><span>Macie tylko <b>3 żetony</b>, czyli siły i pieniądze państwa. Wybierzcie trzy problemy, którymi zajmiecie się najpierw.</span><span class="cz">8 min</span></div>'+
+          '<div class="krok"><span>Podzielcie się na grupy. Każda grupa to rząd odrodzonej Polski i dostaje 7 kart problemów.</span><span class="cz">1 min</span></div>'+
+          '<div class="krok"><span>Macie tylko <b>3 żetony</b>, czyli siły i pieniądze państwa. Wybierzcie trzy problemy, którymi zajmiecie się najpierw.</span><span class="cz">6 min</span></div>'+
           '<div class="krok"><span>Każdy wybór uzasadnijcie jednym zdaniem na karcie notatek.</span><span class="cz"></span></div>'+
-          '<div class="krok"><span>Wychowawca wpisze wasze wybory, a potem odsłonimy, co działo się naprawdę.</span><span class="cz">8 min</span></div>'+
+          '<div class="krok"><span>Wychowawca wpisze wasze wybory, a potem odsłonimy, co działo się naprawdę.</span><span class="cz">7 min</span></div>'+
         '</div></div><div class="sym-prawa"><div class="zetony"><i></i><i></i><i></i></div><div class="minutnik" data-min="sym">'+mmss(minPoz("sym"))+'</div>'+
-        '<div class="przyciski" style="justify-content:center"><button class="btn" data-ust="sym|2">Podział 2:00</button><button class="btn" data-ust="sym|8">Decyzja 8:00</button><button class="btn glowny" data-minbtn="sym">Start</button></div></div></div>';
+        '<div class="przyciski" style="justify-content:center"><button class="btn" data-ust="sym|1">Podział 1:00</button><button class="btn" data-ust="sym|6">Decyzja 6:00</button><button class="btn glowny" data-minbtn="sym">Start</button></div></div></div>';
     },
-    enter:function(){ if(!MIN.sym) minReset("sym",8*60000); },
-    sciaga:{czas:"10 min (2 podział + 8 decyzja)", powiedz:["Jest listopad 1918. Każda grupa to rząd. Państwo ma 7 wielkich problemów, ale sił i pieniędzy starczy na trzy. Wybierzcie, czym zajmiecie się najpierw, i uzasadnijcie każdy wybór jednym zdaniem."],
+    enter:function(){ if(!MIN.sym) minReset("sym",6*60000); },
+    sciaga:{czas:"7 min (1 podział + 6 decyzja)", powiedz:["Jest listopad 1918. Każda grupa to rząd. Państwo ma 7 wielkich problemów, ale sił i pieniędzy starczy na trzy. Wybierzcie, czym zajmiecie się najpierw, i uzasadnijcie każdy wybór jednym zdaniem."],
       oczekuj:["Grupy kłócą się o wybór. To dobrze: o to chodzi.","Najczęściej wybierane: wojsko, granice, głód. Najczęściej pomijane: prawo, komunikacja."],
-      uwagi:["Karty problemów są tylko na papierze (bez części „co zrobiono”, ta jest w aplikacji).","Ustaw minutnik: najpierw „Podział 2:00”, potem „Decyzja 8:00”. Na koniec usłyszysz łagodny sygnał.","Chodź między grupami. Pytaj: „Co się stanie z kartą, której nie wybraliście?”"]}
+      uwagi:["Karty problemów są tylko na papierze (bez części „co zrobiono”, ta jest w aplikacji).","Ustaw minutnik: najpierw „Podział 1:00”, potem „Decyzja 6:00”. Na koniec usłyszysz łagodny sygnał.","Karty i karty notatek połóż na ławkach przed lekcją, żeby podział zajął minutę.","Chodź między grupami. Pytaj: „Co się stanie z kartą, której nie wybraliście?”"]}
   },
   { id:"tablica", etap:"3", cur:function(){return {id:"czekaj6",typ:"czekaj",tresc:"Wychowawca wpisuje wybory grup. Patrz na ekran."};},
     html:function(){ return etyk("Etap 3 · Zestawienie","Wybory grup")+'<h2 class="ekran-tyt" style="margin-bottom:.6em">Co wybrały rządy?</h2><div id="dyn"></div>'; },
@@ -607,7 +613,7 @@ var EKR_WSZ = [
       return h+'</div></div>';
     },
     dalej:function(){ for(var i=0;i<T.karty.length;i++) if(!S.odwr[i]){ S.odwr[i]=1; S.karta=i; zapisz(); odswiez(); return true; } return false; },
-    sciaga:{czas:"5 min", powiedz:["Sprawdźmy, co działo się naprawdę. Zacznijmy od problemu, który najczęściej pomijaliście."],
+    sciaga:{czas:"4 min", powiedz:["Sprawdźmy, co działo się naprawdę. Zacznijmy od problemu, który najczęściej pomijaliście."],
       oczekuj:["Klikaj kolejne karty (lub naciskaj →). Na ekranie pojawia się: co zrobiono i co groziło bez tego.","Uczniowie zauważą, że prawie każdy problem ciągnął się latami (złoty dopiero w 1924 r., kodeks karny w 1932 r.)."],
       uwagi:["Armia Hallera: polska armia utworzona we Francji, przybyła do kraju wiosną 1919 r.","ARA: amerykańska pomoc żywnościowa, w szczytowym okresie dożywiała ponad milion dzieci."]}
   },
@@ -619,7 +625,7 @@ var EKR_WSZ = [
       h+='</ul></div><div>'+(o?'<div class="wniosek ekran-in" style="font-size:1.25em">'+esc(T.puentaWychowawcza)+'</div>':'<button class="btn glowny" data-odsl="puenta3|1">Pokaż puentę wychowawczą</button>')+'</div></div>';
       return h;
     },
-    sciaga:{czas:"2 min", powiedz:["Przeczytaj zdanie na górze ekranu.","Zadaj 1–2 pytania z listy, potem kliknij puentę i przeczytaj ją na głos."], oczekuj:["„Nie dało się po kolei.” „Musieli wszyscy.” Na pytanie „kto musiał się zaangażować” dopisuj zawody: nauczyciele, kolejarze, lekarze, urzędnicy."], uwagi:["Ta puenta to most do współczesności w etapie 4."]}
+    sciaga:{czas:"1 min", powiedz:["Przeczytaj zdanie na górze ekranu.","Zadaj jedno pytanie z listy, potem kliknij puentę i przeczytaj ją na głos."], oczekuj:["„Nie dało się po kolei.” „Musieli wszyscy.” Na pytanie „kto musiał się zaangażować” dopisuj zawody: nauczyciele, kolejarze, lekarze, urzędnicy."], uwagi:["Brak czasu: tylko zdanie z góry ekranu i puenta wychowawcza, bez rozmowy.","Ta puenta to most do współczesności w etapie 4."]}
   },
   { id:"linia", etap:"4", q:function(){return "linia"+S.teza;},
     cur:function(){ return {id:"linia"+S.teza,typ:"linia",tresc:T.linia.tezy[S.teza],lewo:T.linia.lewo,prawo:T.linia.prawo}; },
@@ -638,8 +644,8 @@ var EKR_WSZ = [
       if(pokazPM()){ var m=S.man[qid]||[]; h+='<div class="segmenty">'; ["zdecydowanie nie","raczej nie","nie wiem","raczej tak","zdecydowanie tak"].forEach(function(t,i){ h+='<div><span class="plusminus"><button data-plus="'+qid+'|'+i+'|-1|5">−</button><button data-plus="'+qid+'|'+i+'|1|5">+</button></span>'+t+' ('+(m[i]||0)+')</div>'; }); h+='</div>'; }
       return h;
     },
-    sciaga:{czas:"4 min", powiedz:["Teraz nie o historii, tylko o was. Na telefonie przesuńcie suwak tak, jak bardzo zgadzacie się z tezą. Nikt nie widzi, kto gdzie stoi."],
-      oczekuj:["Wybierz 2–3 tezy (przyciski nad tezą). Po każdej zapytaj: „Dlaczego ktoś mógłby stanąć po drugiej stronie?”"].concat(T.linia.zasady),
+    sciaga:{czas:"2 min", powiedz:["Teraz nie o historii, tylko o was. Na telefonie przesuńcie suwak tak, jak bardzo zgadzacie się z tezą. Nikt nie widzi, kto gdzie stoi."],
+      oczekuj:["Wybierz 1–2 tezy (przyciski nad tezą). Po każdej zapytaj: „Dlaczego ktoś mógłby stanąć po drugiej stronie?”"].concat(T.linia.zasady),
       uwagi:["Bez telefonów: uczniowie stają wzdłuż sali (jedna ściana: nie zgadzam się, druga: zgadzam się). Liczby wpisujesz w pięciu przedziałach przyciskami + i −.","Nie oceniaj stanowisk i nie wchodź w spory partyjne. Jeśli rozmowa skręca w politykę bieżącą, użyj odpowiedzi z „Trudnych pytań” (klawisz T)."]}
   },
   { id:"refleksja", etap:"4", q:function(){return "ref"+S.ref;},
@@ -665,33 +671,50 @@ var EKR_WSZ = [
       }
       return h;
     },
-    sciaga:{czas:"5 min", powiedz:["Na koniec jedno pytanie, odpowiedź anonimowa, kilka słów. Nie ma złych odpowiedzi."],
+    sciaga:{czas:"3 min", powiedz:["Jedno pytanie, odpowiedź anonimowa, kilka słów. Nie ma złych odpowiedzi."],
       oczekuj:["Wybierz jedno z trzech pytań (przyciski u góry). Przy krótkich odpowiedziach („Niepodległość to dla mnie…”) dobrze działa widok „Chmura”.","Przeczytaj na głos kilka odpowiedzi. Bez debaty i bez oceniania."],
       uwagi:["Kliknięcie karteczki ukrywa ją (np. żart nie na miejscu). Wulgaryzmy są maskowane automatycznie.","„Zasłoń” chowa ścianę, gdy chcesz najpierw przejrzeć odpowiedzi.","Bez telefonów: karteczki samoprzylepne. Zbierz je i wpisz kilka w pole pod ścianą (pole widoczne przy otwartej ściądze)."]}
   },
-  { id:"koniec", etap:"p", cur:function(){return {id:"koniec",typ:"koniec",tresc:"Dziękujemy za udział w lekcji."};},
-    html:function(){ return fotoTlo("rozbrajanie")+'<div class="koniec"><div class="pas2"><i></i><i></i></div><div class="zd">'+esc(wariant().zamkniecie)+'</div><div class="daty">11 listopada 1918 · 11 listopada '+new Date().getFullYear()+'</div></div>'; },
-    sciaga:{czas:"2 min", powiedz:[wariantZam], oczekuj:["Przeczytaj zdanie spokojnie, bez komentarza. To koniec lekcji."], uwagi:["Etap 4 i puenta nie mogą zniknąć: bez nich lekcja wychowawcza staje się lekcją historii."]}
-  },
-  { id:"modA", etap:"m", modul:"modA", cur:function(){return {id:"czekaj9",typ:"czekaj",tresc:"Moduł: Wiele twarzy niepodległości. Patrz na ekran."};},
-    html:function(){ return etyk("Moduł A","Wiele twarzy niepodległości")+'<h2 class="ekran-tyt" style="margin-bottom:.7em">'+esc(T.pytanieModuluA)+'</h2><div id="dyn"></div>'; },
+  { id:"modA", etap:"m", cur:function(){return {id:"czekaj9",typ:"czekaj",tresc:"Wiele twarzy niepodległości. Patrz na ekran."};},
+    html:function(){
+      var Z=T.zwrot;
+      if(S.zwrot) return fotoTlo(Z.tlo,"slabe")+etyk("Etap 5 · Wiele twarzy","A dziś?")+'<div class="zwrot">'+Z.osoby.map(function(o,i){ return '<div class="osoba" style="animation-delay:'+(i*0.11).toFixed(2)+'s"><img src="img/'+o.foto+'.jpg" alt=""><span>'+esc(o.imie)+'</span></div>'; }).join("")+'</div>'+
+        '<div class="puenta-zwrot"><div class="etykieta"><b>1918 · '+new Date().getFullYear()+'</b></div><h2>'+esc(Z.tytul)+'</h2><p>'+esc(Z.tekst)+'</p><p class="pyt">'+esc(Z.pytanie)+'</p></div>';
+      return etyk("Etap 5 · Wiele twarzy niepodległości",S.postac>=0?(S.postac+1)+" z "+T.postacie.length:"")+'<h2 class="ekran-tyt" style="margin-bottom:.7em">'+esc(T.pytanieModuluA)+'</h2><div id="dyn"></div>';
+    },
     dyn:function(){
       var h='<div class="postacie">';
       T.postacie.forEach(function(p,i){ h+='<button class="postac'+(S.postac===i?" akt":"")+'" data-postac="'+i+'"><img src="img/'+POSTAC_FOTO[i]+'.jpg" alt=""><h3>'+esc(p.imie)+'</h3><div class="lata">'+esc(p.lata)+'</div><p>'+esc(p.watek)+'</p></button>'; });
       h+='</div>';
-      if(S.postac>=0){ var p=T.postacie[S.postac]; h+='<div class="bio-ekran ekran-in"><h3>'+esc(p.imie)+' <span class="mdl" style="font-weight:300">'+esc(p.lata)+'</span></h3><p class="mdl" style="margin:.2em 0 0;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.8em;color:var(--czerwien2)">'+esc(p.watek)+'</p><p style="margin:.5em 0;font-size:.92em">'+esc(p.bio)+'</p><p class="mdl" style="margin:0;font-size:.85em"><b style="color:var(--czerwien)">Pytanie dla grupy:</b> '+esc(p.pytanie)+'</p></div>'; }
+      if(S.postac>=0){ var p=T.postacie[S.postac]; h+='<div class="bio-ekran ekran-in"><h3>'+esc(p.imie)+' <span class="mdl" style="font-weight:300">'+esc(p.lata)+'</span></h3><p class="mdl" style="margin:.2em 0 0;font-family:var(--cond);text-transform:uppercase;letter-spacing:.08em;font-size:.8em;color:var(--czerwien2)">'+esc(p.watek)+'</p><p style="margin:.5em 0;font-size:.92em">'+esc(p.bio)+'</p></div>'; }
+      else h+='<p class="mdl" style="margin-top:1.4em">Naciskaj →, aby poznawać kolejne postacie.</p>';
       return h;
     },
-    sciaga:{czas:"15–20 min (na drugą godzinę lub zamiast etapu 2)", powiedz:["Każda grupa dostaje jedną postać. Przeczytajcie biogram i odpowiedzcie: kim był(a), jakie miał(a) poglądy, jak przyczynił(a) się do niepodległości, z kim się spierał(a)."],
-      oczekuj:["Grupy prezentują postać w 1 minutę. Na koniec pytanie: co ich różniło, a co mimo to połączyło?","Odpowiedź, do której warto dojść: różnili się prawie we wszystkim, ale łączyło ich to, że chcieli niepodległego państwa i dla niego pracowali."],
-      uwagi:["Biogramy do druku są w materiałach (druk.html).","Kliknięcie postaci pokazuje jej biogram na ekranie."]}
+    dalej:function(){
+      if(S.zwrot) return false;
+      if(S.postac<T.postacie.length-1){ S.postac++; zapisz(); rysuj(); return true; }
+      S.zwrot=1; zapisz(); rysuj(); return true;
+    },
+    wstecz:function(){
+      if(S.zwrot){ S.zwrot=0; zapisz(); rysuj(); return true; }
+      if(S.postac>0){ S.postac--; zapisz(); rysuj(); return true; }
+      return false;
+    },
+    sciaga:{czas:"10 min (7 postaci po ok. 1 min + 3 min na zwrot akcji)", powiedz:["Niepodległość budowali ludzie, którzy bardzo się różnili. Zobaczmy, kim byli."],
+      oczekuj:["Naciskaj →: kolejne postacie i krótki biogram. Przy każdej przeczytaj wątek przewodni i jedno, dwa zdania.","Po ostatniej postaci kolejne → zmienia portrety na współczesnych polityków i pokazuje pytanie. Daj klasie chwilę ciszy, potem zapytaj: „Co musiałoby się stać, żeby dziś było podobnie?”"],
+      uwagi:["Na ekranie są przedstawiciele różnych ugrupowań, celowo bez podpisów funkcji. Nie oceniaj polityków ani partii i nie pozwól, by rozmowa zamieniła się w spór o konkretne osoby. Wracaj do pytania o współpracę mimo różnic.","Zdjęcie w tle: protest w Warszawie w 2020 r., jako symbol dzisiejszych podziałów. Nie komentuj samej sprawy protestu.","Masz więcej czasu (np. druga godzina): rozdaj grupom biogramy z materiałów do druku i poproś o minutowe prezentacje.","Klawisz ← cofa zwrot akcji i kolejne postacie."]}
+  },
+  { id:"koniec", etap:"p", cur:function(){return {id:"koniec",typ:"koniec",tresc:"Dziękujemy za udział w lekcji."};},
+    html:function(){ return fotoTlo("rozbrajanie")+'<div class="koniec"><div class="pas2"><i></i><i></i></div><div class="zd">'+esc(wariant().zamkniecie)+'</div><div class="daty">11 listopada 1918 · 11 listopada '+new Date().getFullYear()+'</div></div>'; },
+    sciaga:{czas:"2 min", powiedz:[wariantZam], oczekuj:["Przeczytaj zdanie spokojnie, bez komentarza. To koniec lekcji."], uwagi:["Etapy 4 i 5 oraz puenta nie mogą zniknąć: bez nich lekcja wychowawcza staje się lekcją historii."]}
   }
+
 ];
 function wariantOtw(){ return "„"+wariant().otwarcie+"”"; }
 function wariantZam(){ return "„"+wariant().zamkniecie+"”"; }
 
 var EKR = [];
-function zbuduj(){ EKR = EKR_WSZ.filter(function(e){ return !e.modul || S[e.modul]; }); if(S.idx>=EKR.length) S.idx=EKR.length-1; }
+function zbuduj(){ EKR = EKR_WSZ.slice(); if(S.idx>=EKR.length) S.idx=EKR.length-1; }
 function liczGr(){ var l=T.karty.map(function(){return 0;}); S.grupy.wyb.slice(0,S.grupy.n).forEach(function(a){ a.forEach(function(i){ l[i]++; }); }); return l; }
 function wartLinii(qid){
   var v=[]; var m=S.man[qid]||[]; [10,30,50,70,90].forEach(function(p,i){ for(var j=0;j<(m[i]||0);j++) v.push(p); });
@@ -712,11 +735,12 @@ function rysuj(){
   if(e.enter) e.enter();
   // pasek etapów
   var tu=e.etap, ix=ETAPY.findIndex(function(x){return x.id===tu;});
-  $("#etapy").innerHTML=ETAPY.filter(function(x){ return x.id!=="m" || S.modA; }).map(function(x,i){
+  $("#etapy").innerHTML=ETAPY.map(function(x,i){
     var j=ETAPY.indexOf(x);
-    return '<button class="'+(x.id===tu?"teraz":j<ix?"byl":"")+'" data-etap="'+x.id+'"><b>'+esc(x.nazwa)+'</b>'+(x.min?'<span>'+x.min+'′</span>':'')+'</button>';
+    return '<button class="'+(x.id===tu?"teraz":j<ix?"byl":"")+'" data-etap="'+x.id+'"><b>'+esc(x.nazwa)+'</b></button>';
   }).join("");
   $("#nr").textContent=(S.idx+1)+" / "+EKR.length;
+  $("#dol").classList.toggle("wid", e.id==="start");
   $("#wstecz").disabled = S.idx===0; $("#dalej").disabled = S.idx===EKR.length-1;
   $("#scena").scrollTop=0;
   rysujPanel();
@@ -747,7 +771,7 @@ function rysujPanel(){
 /* ================= nawigacja ================= */
 function idz(i){ if(i<0||i>=EKR.length) return; S.idx=i; zapisz(); rysuj(); }
 function dalej(){ var e=EKR[S.idx]; if(!S.start && S.idx===0){ S.start=Date.now(); } if(e.dalej && e.dalej()) return; idz(S.idx+1); }
-function wstecz(){ idz(S.idx-1); }
+function wstecz(){ var e=EKR[S.idx]; if(e.wstecz && e.wstecz()) return; idz(S.idx-1); }
 function nakladka(html){ var n=$("#nakladka"); n.innerHTML='<button class="btn zamk" data-akcja="zamknij">Zamknij <kbd>Esc</kbd></button>'+html; n.classList.remove("ukryj"); }
 function zamknijNak(){ $("#nakladka").classList.add("ukryj"); }
 function pokazQR(){ if(!NA_ZYWO()){ toast("Głosowanie telefonami jest wyłączone (tryb ręczny)."); return; } nakladka('<div style="text-align:center">'+etyk("Dołącz do lekcji")+blokQR()+'</div>'); }
@@ -765,7 +789,7 @@ document.addEventListener("click", function(ev){
     else if(a==="trudne") pokazTrudne();
     else if(a==="zamknij") zamknijNak();
     else if(a==="pelny") pelny();
-    else if(a==="nowa"){ if(confirm("Rozpocząć lekcję z nową klasą? Wyniki poprzedniej klasy zostaną wyczyszczone.")){ var w=S.wariant,mA=S.modA,mB=S.modB,rc=S.reczny; S=domyslny(); S.wariant=w; S.modA=mA; S.modB=mB; S.reczny=rc; R={}; MIN={}; ostatniCur=null; zapisz(); rysuj(); toast("Nowa klasa, kod "+S.kod); } }
+    else if(a==="nowa"){ if(confirm("Rozpocząć lekcję z nową klasą? Wyniki poprzedniej klasy zostaną wyczyszczone.")){ var w=S.wariant,rc=S.reczny; S=domyslny(); S.wariant=w; S.reczny=rc; R={}; MIN={}; ostatniCur=null; zapisz(); rysuj(); toast("Nowa klasa, kod "+S.kod); } }
     else if(a==="czyscgr"){ S.grupy.wyb=[]; zapisz(); odswiez(); }
     else if(a==="zakryjwsz"){ S.odwr={}; S.karta=-1; zapisz(); odswiez(); }
     else if(a==="zaslona"){ S.zaslona=!S.zaslona; zapisz(); odswiez(); }
@@ -786,7 +810,7 @@ document.addEventListener("click", function(ev){
   if(d.ref){ S.ref=+d.ref; zapisz(); rysuj(); return; }
   if(d.widok){ S.widok=d.widok; zapisz(); odswiez(); return; }
   if(d.ukryj!==undefined){ S.ukryte[d.ukryj]=!S.ukryte[d.ukryj]; zapisz(); odswiez(); rysujPanelJesli(); return; }
-  if(d.postac){ S.postac=S.postac===+d.postac?-1:+d.postac; zapisz(); odswiez(); return; }
+  if(d.postac){ S.postac=+d.postac; zapisz(); rysuj(); return; }
   if(d.ust){ p=d.ust.split("|"); minReset(p[0],+p[1]*60000); return; }
   if(d.minbtn){ var m=MIN[d.minbtn]; if(m&&m.run) minPauza(d.minbtn); else minStart(d.minbtn); return; }
   if(d.minreset){ p=d.minreset.split("|"); minReset(p[0],+p[1]*60000); return; }
@@ -808,6 +832,13 @@ document.addEventListener("keydown", function(ev){
   else if(k==="Escape") $("#panel").classList.remove("otw");
 });
 $("#dalej").onclick=dalej; $("#wstecz").onclick=wstecz;
+/* dolny pasek: pojawia się po najechaniu na dół ekranu */
+var dolT=null;
+function dolPokaz(){ $("#dol").classList.add("wid"); clearTimeout(dolT); }
+function dolUkryj(ms){ clearTimeout(dolT); dolT=setTimeout(function(){ if(EKR[S.idx].id!=="start") $("#dol").classList.remove("wid"); }, ms||600); }
+document.addEventListener("mousemove", function(ev){ if(ev.clientY > innerHeight*0.91 || (ev.target.closest && ev.target.closest("#dol"))) dolPokaz(); else if($("#dol").classList.contains("wid")) dolUkryj(); });
+document.addEventListener("pointerdown", function(ev){ if(ev.pointerType!=="mouse" && ev.clientY > innerHeight*0.88){ dolPokaz(); dolUkryj(5000); } });
+document.documentElement.addEventListener("mouseleave", function(){ dolUkryj(300); });
 
 /* odśwież ściągę z podglądem odpowiedzi */
 setInterval(function(){ var e=EKR[S.idx]; if(e.id==="refleksja" && $("#panel").classList.contains("otw")) rysujPanel(); }, 5000);

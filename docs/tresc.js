@@ -160,15 +160,27 @@ window.TRESC = {
   ],
   pytanieModuluA: "Co ich różniło, a co mimo to połączyło?",
 
-  /* Moduł B – historia święta */
-  historiaSwieta: [
-    { rok: "1918–1936", txt: "11 listopada obchodzony, ale bez rangi ustawowego święta państwowego." },
-    { rok: "1937", txt: "Ustawa z 23 kwietnia ustanawia Święto Niepodległości." },
-    { rok: "1945", txt: "Władze komunistyczne znoszą święto. Głównym świętem staje się 22 lipca." },
-    { rok: "1945–1988", txt: "Obchody nieoficjalne, msze, w latach 70. i 80. demonstracje opozycji." },
-    { rok: "1989", txt: "Ustawa z 15 lutego przywraca Narodowe Święto Niepodległości." }
-  ],
-  wniosekB: "To, co i jak świętujemy, zależy od władzy i od ludzi. Pamięć bywa polem sporu, a samo świętowanie 11 listopada było kiedyś aktem odwagi.",
+  /* Etap 5 – zwrot akcji: współcześni politycy (kolejność celowo wymieszana, różne ugrupowania) */
+  zwrot: {
+    tytul: "Wtedy potrafili. A my?",
+    tekst: "W 1918 roku Piłsudski i Dmowski, socjaliści i ludowcy, Ślązacy i pierwsze posłanki ostro się ze sobą spierali. A mimo to zbudowali jedno państwo.",
+    pytanie: "Czy dziś, mimo różnic, potrafimy połączyć się w imię niepodległości i wspólnego państwa?",
+    osoby: [
+      { imie: "Karol Nawrocki", foto: "nawrocki" },
+      { imie: "Donald Tusk", foto: "tusk" },
+      { imie: "Jarosław Kaczyński", foto: "kaczynski" },
+      { imie: "Władysław Kosiniak-Kamysz", foto: "kosiniak" },
+      { imie: "Adrian Zandberg", foto: "zandberg" },
+      { imie: "Krzysztof Bosak", foto: "bosak" },
+      { imie: "Barbara Nowacka", foto: "nowacka" },
+      { imie: "Mateusz Morawiecki", foto: "morawiecki" },
+      { imie: "Szymon Hołownia", foto: "holownia" },
+      { imie: "Sławomir Mentzen", foto: "mentzen" },
+      { imie: "Włodzimierz Czarzasty", foto: "czarzasty" },
+      { imie: "Rafał Trzaskowski", foto: "trzaskowski" }
+    ],
+    tlo: "protest2020"
+  },
 
   /* Ściąga: trudne pytania uczniów */
   trudne: [
