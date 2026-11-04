@@ -41,11 +41,18 @@ textarea,.kod input{width:100%;border:1.5px solid var(--linia2);border-radius:0;
 .licz{font-size:.75em;color:var(--szary);text-align:right;margin-top:4px}
 .kod input{text-transform:uppercase;letter-spacing:.2em;text-align:center;font-family:var(--serif);font-size:1.6em;margin-bottom:4px}
 .mdl{color:var(--szary);font-size:.9em}
+.uwaga{display:flex;gap:10px;align-items:flex-start;background:rgba(220,47,59,.12);border-left:3px solid var(--czerwien);padding:10px 12px;margin:0 0 18px;font-size:.85em;line-height:1.4}
+.uwaga b{color:#ff7a83}
+#powrot{position:fixed;inset:0;background:rgba(13,12,11,.94);display:none;align-items:center;justify-content:center;padding:24px;z-index:9}
+#powrot.wid{display:flex}
+#powrot div{max-width:420px;border-top:4px solid var(--czerwien);background:var(--papier);padding:22px}
+#powrot h2{font-family:var(--serif);font-weight:500;text-transform:uppercase;margin:0 0 10px;font-size:1.5em}
 footer{text-align:center;font-size:.72em;color:var(--szary);padding:0 16px 24px}
 </style>
 </head>
 <body>
 <header><span class="pas"><i></i><i></i></span><b>Niepodległość do zbudowania</b><span id="kodKl"></span></header>
+<div id="powrot"><div><h2>Wróć do lekcji</h2><p class="mdl" style="margin:0 0 16px">Opuszczono okno lekcji. Zostań na tej stronie do końca zajęć, inaczej możesz przegapić pytanie. Twoje odpowiedzi są zapisane.</p><button class="wyslij" onclick="this.closest('#powrot').classList.remove('wid')">Wracam do lekcji</button></div></div>
 <main id="m"><div class="czekaj"><div class="k"></div>Łączenie…</div></main>
 <footer>Głosowanie jest anonimowe. Nie zbieramy imion ani danych osobowych.</footer>
 <script src="ustawienia.js"></script>
@@ -72,7 +79,7 @@ function pokazKod(){
 
 function rysuj(){
   var c=cur;
-  if(!c || c.typ==="czekaj"){ m.innerHTML='<div class="czekaj"><div class="k"></div>'+esc(c&&c.tresc||"Czekaj na pytanie. Patrz na ekran.")+'</div>'; return; }
+  if(!c || c.typ==="czekaj"){ m.innerHTML=UWAGA+'<div class="czekaj"><div class="k"></div>'+esc(c&&c.tresc||"Czekaj na pytanie. Patrz na ekran.")+'</div>'; return; }
   if(c.typ==="koniec"){ m.innerHTML='<div class="czekaj" style="color:var(--tusz)"><h1>'+esc(c.tresc)+'</h1><p class="mdl">Możesz zamknąć tę stronę.</p></div>'; return; }
   var a=odp[c.id], h='';
   if(c.typ==="wybor"){
@@ -86,11 +93,12 @@ function rysuj(){
     h='<div class="etyk">Twoja odpowiedź · anonimowo</div><h1>'+esc(c.tresc)+'</h1><textarea id="t" rows="3" maxlength="90" placeholder="Kilka słów…">'+esc(a||"")+'</textarea><div class="licz" id="lz">'+(a||"").length+'/90</div><button class="wyslij" id="send">'+(a?"Popraw odpowiedź":"Wyślij")+'</button>'+(a?'<div class="ok">Wysłano. Twoja odpowiedź pojawi się na ekranie bez podpisu.</div>':'');
   }
   if(komunikat) h+='<div class="blad">'+esc(komunikat)+'</div>';
-  m.innerHTML=h;
+  m.innerHTML=UWAGA+h;
   var r=document.getElementById("r"); if(r) r.oninput=function(){ document.getElementById("w").textContent=opis(+r.value); };
   var t=document.getElementById("t"); if(t) t.oninput=function(){ document.getElementById("lz").textContent=t.value.length+"/90"; };
   var s=document.getElementById("send"); if(s) s.onclick=function(){ if(c.typ==="linia") glos(+r.value); else { var x=t.value.replace(/\s+/g," ").trim(); if(x) glos(x); } };
 }
+var UWAGA='<div class="uwaga"><span>⚠</span><span><b>Nie wychodź z tej strony do końca lekcji.</b> Nie przełączaj aplikacji i nie zamykaj karty: pytania pojawiają się tutaj same.</span></div>';
 function opis(v){ return v<15?"zdecydowanie się nie zgadzam":v<40?"raczej się nie zgadzam":v<=60?"trudno powiedzieć":v<=85?"raczej się zgadzam":"zdecydowanie się zgadzam"; }
 
 m.addEventListener("click",function(e){ var b=e.target.closest("[data-v]"); if(b&&cur&&cur.typ==="wybor") glos(+b.getAttribute("data-v")); });
@@ -115,7 +123,9 @@ function sprawdz(){
   }).catch(function(){ plan(5000); });
 }
 var tm; function plan(ms){ clearTimeout(tm); tm=setTimeout(sprawdz, ms + Math.random()*1200); }
-document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="visible") plan(0); });
+var zniknal=0;
+document.addEventListener("visibilitychange",function(){ if(document.visibilityState==="hidden") zniknal=Date.now(); else { if(zniknal && Date.now()-zniknal>1500) document.getElementById("powrot").classList.add("wid"); plan(0); } });
+window.addEventListener("beforeunload",function(e){ if(cur && cur.typ!=="koniec"){ e.preventDefault(); e.returnValue=""; } });
 sprawdz();
 })();
 </script>

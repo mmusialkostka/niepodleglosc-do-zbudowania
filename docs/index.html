@@ -59,6 +59,8 @@ a{color:var(--czerwien2)}
 .foto-tlo.pelne:after{background:linear-gradient(90deg,rgba(13,12,11,.96) 0%,rgba(13,12,11,.82) 45%,rgba(13,12,11,.55) 100%)}
 .foto-tlo.slabe img{opacity:.55;width:100%}
 .foto-tlo.slabe:after{background:rgba(13,12,11,.82)}
+.foto-tlo.kolor img{filter:saturate(1.05) brightness(.95)}
+.foto-tlo.kolor.slabe img{filter:brightness(.9)}
 .podpis{position:absolute;right:calc(var(--u)*1.6);bottom:calc(var(--u)*1);z-index:2;font-size:.55em;color:rgba(242,238,231,.65);max-width:40%;text-align:right;letter-spacing:.02em}
 .fig{margin:0;display:flex;flex-direction:column;gap:.4em}
 .fig img{width:100%;height:100%;min-height:0;object-fit:cover;filter:grayscale(1) contrast(1.1);display:block;flex:1}
@@ -126,7 +128,7 @@ a{color:var(--czerwien2)}
 .odp-z-foto .fig{height:calc(var(--u)*16)}
 
 /* ---------- oś czasu ---------- */
-.os{position:relative;z-index:3;display:grid;grid-template-columns:repeat(7,1fr);border-top:1px solid var(--linia2);margin-bottom:calc(var(--u)*1.6)}
+.os{position:relative;z-index:3;display:grid;grid-template-columns:repeat(9,1fr);border-top:1px solid var(--linia2);margin-bottom:calc(var(--u)*1.6)}
 .punkt{border:0;background:transparent;padding:calc(var(--u)*.7) 0 0;text-align:left;position:relative;font-family:var(--cond);color:var(--jasny);letter-spacing:.04em}
 .punkt:before{content:"";position:absolute;top:-1px;left:0;right:calc(var(--u)*1);height:3px;background:transparent;transition:background .2s}
 .punkt i{display:none}
@@ -244,7 +246,7 @@ a{color:var(--czerwien2)}
 /* ---------- zwrot akcji ---------- */
 .zwrot{display:grid;grid-template-columns:repeat(12,1fr);gap:calc(var(--u)*.5);margin-top:calc(var(--u)*.4)}
 .osoba{display:flex;flex-direction:column;gap:.3em;animation:obrot .7s cubic-bezier(.2,.7,.2,1) both}
-.osoba img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 18%;filter:grayscale(1) contrast(1.1)}
+.osoba img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:center 18%}
 .osoba span{font-family:var(--cond);text-transform:uppercase;letter-spacing:.02em;font-size:.6em;line-height:1.15}
 @keyframes obrot{from{opacity:0;transform:perspective(800px) rotateY(90deg)}to{opacity:1;transform:none}}
 #ekran>div.puenta-zwrot.puenta-zwrot{position:relative;margin-top:calc(var(--u)*2.2);width:100%;background:rgba(13,12,11,.95);border:1px solid var(--linia2);border-top:4px solid var(--czerwien);padding:calc(var(--u)*2.4) calc(var(--u)*3);box-shadow:0 30px 80px rgba(0,0,0,.75);z-index:5;animation:wyskok .6s cubic-bezier(.2,.8,.2,1) 2.2s both}
@@ -363,11 +365,11 @@ function wariant(){ return T.warianty[S.wariant] || T.warianty.przed; }
 
 /* ================= zdjęcia ================= */
 var FOTO = window.FOTO || {};
-function podpis(k){ var f=FOTO[k]; return f ? esc(f.opis)+' · '+esc(f.licencja)+', Wikimedia Commons' : ''; }
+function podpis(k){ var f=FOTO[k]; if(!f) return ''; var wm=/wikimedia/.test(f.zrodlo), au=(f.autor&&!/nieznany/.test(f.autor))?esc(f.autor)+', ':''; return esc(f.opis)+' · '+(wm?au:'')+esc(f.licencja)+(wm?', Wikimedia Commons':''); }
 function fotoTlo(k, typ){ if(!FOTO[k]) return ''; return '<div class="foto-tlo '+(typ||'')+'"><img src="img/'+k+'.jpg" alt=""></div><div class="podpis">'+podpis(k)+'</div>'; }
 function fig(k){ if(!FOTO[k]) return ''; return '<figure class="fig"><img src="img/'+k+'.jpg" alt="'+esc(FOTO[k].opis)+'"><figcaption>'+podpis(k)+'</figcaption></figure>'; }
 function etyk(a,b){ return '<div class="etykieta"><b>'+esc(a)+'</b>'+(b?'<span>'+esc(b)+'</span>':'')+'</div>'; }
-var OS_FOTO = ["rada","daszynski","pilsudski2","compiegne",null,"pilsudski","sejm1919"];
+var OS_FOTO = ["rada","witos",null,"daszynski","pilsudski2","compiegne",null,"pilsudski","sejm1919"];
 var KARTA_FOTO = {0:"marka",2:"haller",3:"wielkopolska",5:"sejm1919"};
 var POSTAC_FOTO = ["pilsudski2","dmowski","paderewski","witos","daszynski","korfanty","moraczewska"];
 var RZYM = {"X":"października","XI":"listopada"};
@@ -490,7 +492,7 @@ var EKR_WSZ = [
   { id:"start", etap:"s", cur:function(){return {id:"czekaj0",typ:"czekaj",tresc:"Lekcja zaraz się zacznie."};},
     html:function(){
       var w=S.wariant;
-      return fotoTlo("rozbrajanie")+'<div class="start">'+etyk("Lekcja wychowawcza","11 listopada · liceum")+'<h1>Niepodległość<em>do zbudowania</em></h1>'+
+      return fotoTlo("rozbrajanie")+'<div class="start">'+etyk("Godzina wychowawcza","11 listopada · KOSTKA Publiczne Liceum Jezuitów")+'<h1>Niepodległość<em>do zbudowania</em></h1>'+
         '<p class="lead">45 minut o tym, że niepodległości nie odzyskano jednego dnia. Trzeba ją było zbudować i trzeba ją podtrzymywać.</p>'+
         '<div class="przyciski"><button class="btn glowny" data-akcja="zacznij" style="font-size:1em">Rozpocznij lekcję →</button>'+
         '<a class="btn" href="druk.html" target="_blank" style="text-decoration:none">Instrukcja i materiały do druku</a>'+
@@ -524,10 +526,10 @@ var EKR_WSZ = [
   quiz("p1", T.pytanie1, "1", 1),
   quiz("p2", T.pytanie2, "1", 2),
   { id:"os", etap:"2", cur:function(){return {id:"czekaj2",typ:"czekaj",tresc:"Patrz na ekran: oś wydarzeń jesieni 1918."};},
-    html:function(){ return etyk("Etap 2 · Śledztwo","Dlaczego 11 listopada?")+'<h2 class="ekran-tyt" style="font-size:2.2em">Jesień 1918: siedem dat, jedna niepodległość</h2><div id="dyn" style="flex:1;display:flex;flex-direction:column"></div>'; },
+    html:function(){ return etyk("Etap 2 · Śledztwo","Dlaczego 11 listopada?")+'<h2 class="ekran-tyt" style="font-size:2.2em">Jesień 1918: dziewięć dat, jedna niepodległość</h2><div id="dyn" style="flex:1;display:flex;flex-direction:column"></div>'; },
     dyn:function(){
       var h='<div class="os">';
-      T.os.forEach(function(p,i){ h+='<button class="punkt'+(S.osWid[i]?" wid":"")+(S.os===i?" akt":"")+(i===3?" jedenasty":"")+'" data-os="'+i+'"><i></i><span>'+esc(p.data)+'</span></button>'; });
+      T.os.forEach(function(p,i){ h+='<button class="punkt'+(S.osWid[i]?" wid":"")+(S.os===i?" akt":"")+(p.data.indexOf("11 XI")===0?" jedenasty":"")+'" data-os="'+i+'"><i></i><span>'+esc(p.data)+'</span></button>'; });
       h+='</div><div class="os-opis">';
       if (S.os>=0){ var p=T.os[S.os], cz=p.data.split(" "), f=OS_FOTO[S.os];
         h+='<div class="os-det ekran-in"><div class="dzien"><b>'+cz[0]+'</b><span>'+(RZYM[cz[1]]||cz[1]).toUpperCase()+' '+cz[2]+'</span></div><div><div class="wyd">'+esc(p.wyd)+'</div><div class="arg"><b>Argument „za tą datą”</b>'+esc(p.arg)+'</div></div>'+(f?fig(f):'<div></div>')+'</div>'; }
@@ -539,7 +541,7 @@ var EKR_WSZ = [
     wstecz:function(){ if(S.os>0){ S.os--; zapisz(); odswiez(); return true; } return false; },
     sciaga:{czas:"4 min", powiedz:["Niepodległość nie przyszła jednego dnia. Zobaczmy, co działo się jesienią 1918 roku."],
       oczekuj:["Przechodź po kolei przez daty (klawisz → odsłania następną). Przy każdej przeczytaj krótko wydarzenie i argument.","Uczniowie mogą zapisywać sobie datę, która najbardziej ich przekonuje."],
-      uwagi:["Jeśli brakuje czasu: pokaż tylko 7 X, 11 XI i 28 XI i od razu przejdź do głosowania.","Rada Regencyjna: organ powołany przez Niemcy i Austro-Węgry w 1917 r., ale złożony z Polaków."]}
+      uwagi:["Jeśli brakuje czasu: pokaż tylko 7 X, 31 X (Kraków), 11 XI i 28 XI i od razu przejdź do głosowania.","Wątek krakowski: Polska Komisja Likwidacyjna (28 X) i rozbrojenie Austriaków w Krakowie (31 X) to dobre pytanie do klasy: dlaczego Kraków nie świętuje 31 października?","Rada Regencyjna: organ powołany przez Niemcy i Austro-Węgry w 1917 r., ale złożony z Polaków."]}
   },
   { id:"data", etap:"2", q:function(){return "data";},
     cur:function(){ return {id:"data",typ:"wybor",tresc:T.zadanieData,opcje:T.os.map(function(p){return p.krotko+" 1918";})}; },
@@ -547,7 +549,7 @@ var EKR_WSZ = [
     dyn:function(){
       var o=S.odsl.data||0, n=T.os.length, l=liczby("data",n), suma=l.reduce(function(a,b){return a+b;},0), mx=Math.max.apply(null,l.concat([1]));
       var h='<div class="slupki" style="--n:'+n+'">';
-      T.os.forEach(function(p,i){ h+='<div class="slupek'+(o>=1&&l[i]===mx&&mx>0?" max":"")+(i===3?" jedenasty":"")+'"><span class="l">'+(o>=1?l[i]:"")+'</span><div class="s" style="height:'+(o>=1?l[i]/mx*75:0)+'%"></div><div class="d">'+esc(p.data.replace(" 1918",""))+'</div>'+
+      T.os.forEach(function(p,i){ h+='<div class="slupek'+(o>=1&&l[i]===mx&&mx>0?" max":"")+(p.data.indexOf("11 XI")===0?" jedenasty":"")+'"><span class="l">'+(o>=1?l[i]:"")+'</span><div class="s" style="height:'+(o>=1?l[i]/mx*75:0)+'%"></div><div class="d">'+esc(p.data.replace(" 1918",""))+'</div>'+
         (pokazPM()?'<span class="plusminus"><button data-plus="data|'+i+'|-1|'+n+'">−</button><button data-plus="data|'+i+'|1|'+n+'">+</button></span>':'')+'</div>'; });
       h+='</div><div class="przyciski"><span class="licznik">Głosów: <b>'+suma+'</b></span><span class="odstep"></span>'+
         (o<1?'<button class="btn glowny" data-odsl="data|1">Pokaż wyniki</button>':'')+
@@ -556,7 +558,7 @@ var EKR_WSZ = [
       if(o>=2) h+='<div class="wyjasn">'+esc(T.dlaczego11)+'</div>';
       return h;
     },
-    sciaga:{czas:"3 min", powiedz:["Wyobraźcie sobie, że jest rok 1937 i to wy ustanawiacie święto. Którą datę wybieracie?"],
+    sciaga:{czas:"3 min", powiedz:["Wyobraźcie sobie, że jest rok 1937 i to Wy ustanawiacie święto. Którą datę wybieracie?"],
       oczekuj:["Po pokazaniu wyników poproś 2–3 osoby o uzasadnienie (także tych, którzy wybrali inną datę niż większość).","Każdy wybór jest dobry, jeśli ma uzasadnienie. Nie ma jednej „prawdziwej” daty."],
       uwagi:["Brak czasu: pomiń głosowanie i od razu kliknij „Dlaczego właśnie 11 listopada?” (zasada czasowa: skraca się etap 2)."]}
   },
@@ -571,7 +573,7 @@ var EKR_WSZ = [
           '<div class="krok"><span>Podzielcie się na grupy. Każda grupa to rząd odrodzonej Polski i dostaje 7 kart problemów.</span><span class="cz">1 min</span></div>'+
           '<div class="krok"><span>Macie tylko <b>3 żetony</b>, czyli siły i pieniądze państwa. Wybierzcie trzy problemy, którymi zajmiecie się najpierw.</span><span class="cz">6 min</span></div>'+
           '<div class="krok"><span>Każdy wybór uzasadnijcie jednym zdaniem na karcie notatek.</span><span class="cz"></span></div>'+
-          '<div class="krok"><span>Wychowawca wpisze wasze wybory, a potem odsłonimy, co działo się naprawdę.</span><span class="cz">7 min</span></div>'+
+          '<div class="krok"><span>Wychowawca wpisze Wasze wybory, a potem odsłonimy, co działo się naprawdę.</span><span class="cz">7 min</span></div>'+
         '</div></div><div class="sym-prawa"><div class="zetony"><i></i><i></i><i></i></div><div class="minutnik" data-min="sym">'+mmss(minPoz("sym"))+'</div>'+
         '<div class="przyciski" style="justify-content:center"><button class="btn" data-ust="sym|1">Podział 1:00</button><button class="btn" data-ust="sym|6">Decyzja 6:00</button><button class="btn glowny" data-minbtn="sym">Start</button></div></div></div>';
     },
@@ -644,7 +646,7 @@ var EKR_WSZ = [
       if(pokazPM()){ var m=S.man[qid]||[]; h+='<div class="segmenty">'; ["zdecydowanie nie","raczej nie","nie wiem","raczej tak","zdecydowanie tak"].forEach(function(t,i){ h+='<div><span class="plusminus"><button data-plus="'+qid+'|'+i+'|-1|5">−</button><button data-plus="'+qid+'|'+i+'|1|5">+</button></span>'+t+' ('+(m[i]||0)+')</div>'; }); h+='</div>'; }
       return h;
     },
-    sciaga:{czas:"2 min", powiedz:["Teraz nie o historii, tylko o was. Na telefonie przesuńcie suwak tak, jak bardzo zgadzacie się z tezą. Nikt nie widzi, kto gdzie stoi."],
+    sciaga:{czas:"2 min", powiedz:["Teraz nie o historii, tylko o Was. Na telefonie przesuńcie suwak tak, jak bardzo zgadzacie się z tezą. Nikt nie widzi, kto gdzie stoi."],
       oczekuj:["Wybierz 1–2 tezy (przyciski nad tezą). Po każdej zapytaj: „Dlaczego ktoś mógłby stanąć po drugiej stronie?”"].concat(T.linia.zasady),
       uwagi:["Bez telefonów: uczniowie stają wzdłuż sali (jedna ściana: nie zgadzam się, druga: zgadzam się). Liczby wpisujesz w pięciu przedziałach przyciskami + i −.","Nie oceniaj stanowisk i nie wchodź w spory partyjne. Jeśli rozmowa skręca w politykę bieżącą, użyj odpowiedzi z „Trudnych pytań” (klawisz T)."]}
   },
@@ -678,8 +680,8 @@ var EKR_WSZ = [
   { id:"modA", etap:"m", cur:function(){return {id:"czekaj9",typ:"czekaj",tresc:"Wiele twarzy niepodległości. Patrz na ekran."};},
     html:function(){
       var Z=T.zwrot;
-      if(S.zwrot) return fotoTlo(Z.tlo,"slabe")+etyk("Etap 5 · Wiele twarzy","A dziś?")+'<div class="zwrot">'+Z.osoby.map(function(o,i){ return '<div class="osoba" style="animation-delay:'+(i*0.11).toFixed(2)+'s"><img src="img/'+o.foto+'.jpg" alt=""><span>'+esc(o.imie)+'</span></div>'; }).join("")+'</div>'+
-        '<div class="puenta-zwrot"><div class="etykieta"><b>1918 · '+new Date().getFullYear()+'</b></div><h2>'+esc(Z.tytul)+'</h2><p>'+esc(Z.tekst)+'</p><p class="pyt">'+esc(Z.pytanie)+'</p></div>';
+      if(S.zwrot) return fotoTlo(Z.tlo,"slabe kolor").replace(/<div class="podpis">[\s\S]*$/,"")+etyk("Etap 5 · Wiele twarzy","A dziś?")+'<div class="zwrot">'+Z.osoby.map(function(o,i){ return '<div class="osoba" style="animation-delay:'+(i*0.11).toFixed(2)+'s"><img src="img/'+o.foto+'.jpg" alt=""><span>'+esc(o.imie)+'</span></div>'; }).join("")+'</div>'+
+        '<div class="puenta-zwrot"><div class="etykieta"><b>1918 · '+new Date().getFullYear()+'</b></div><h2>'+esc(Z.tytul)+'</h2><p>'+esc(Z.tekst)+'</p><p class="pyt">'+esc(Z.pytanie)+'</p><p style="margin:1em 0 0;font-size:.55em;color:var(--jasny)">Tło: '+podpis(Z.tlo)+'. Portrety: Wikimedia Commons, autorzy i licencje w scenariuszu.</p></div>';
       return etyk("Etap 5 · Wiele twarzy niepodległości",S.postac>=0?(S.postac+1)+" z "+T.postacie.length:"")+'<h2 class="ekran-tyt" style="margin-bottom:.7em">'+esc(T.pytanieModuluA)+'</h2><div id="dyn"></div>';
     },
     dyn:function(){
@@ -705,7 +707,7 @@ var EKR_WSZ = [
       uwagi:["Na ekranie są przedstawiciele różnych ugrupowań, celowo bez podpisów funkcji. Nie oceniaj polityków ani partii i nie pozwól, by rozmowa zamieniła się w spór o konkretne osoby. Wracaj do pytania o współpracę mimo różnic.","Zdjęcie w tle: protest w Warszawie w 2020 r., jako symbol dzisiejszych podziałów. Nie komentuj samej sprawy protestu.","Masz więcej czasu (np. druga godzina): rozdaj grupom biogramy z materiałów do druku i poproś o minutowe prezentacje.","Klawisz ← cofa zwrot akcji i kolejne postacie."]}
   },
   { id:"koniec", etap:"p", cur:function(){return {id:"koniec",typ:"koniec",tresc:"Dziękujemy za udział w lekcji."};},
-    html:function(){ return fotoTlo("rozbrajanie")+'<div class="koniec"><div class="pas2"><i></i><i></i></div><div class="zd">'+esc(wariant().zamkniecie)+'</div><div class="daty">11 listopada 1918 · 11 listopada '+new Date().getFullYear()+'</div></div>'; },
+    html:function(){ return fotoTlo("rynek","kolor")+'<div class="koniec"><div class="pas2"><i></i><i></i></div><div class="zd">'+esc(wariant().zamkniecie)+'</div><div class="daty">11 listopada 1918 · 11 listopada '+new Date().getFullYear()+'</div></div>'; },
     sciaga:{czas:"2 min", powiedz:[wariantZam], oczekuj:["Przeczytaj zdanie spokojnie, bez komentarza. To koniec lekcji."], uwagi:["Etapy 4 i 5 oraz puenta nie mogą zniknąć: bez nich lekcja wychowawcza staje się lekcją historii."]}
   }
 
@@ -762,7 +764,7 @@ function rysujPanel(){
   if(s.oczekuj&&s.oczekuj.length) h+='<h4>Czego się spodziewać</h4><ul>'+lista(s.oczekuj)+'</ul>';
   if(s.uwagi&&s.uwagi.length) h+='<h4>Wskazówki</h4><ul>'+lista(s.uwagi)+'</ul>';
   if(e.id==="p1"||e.id==="p2"){ var P=e.id==="p1"?T.pytanie1:T.pytanie2; h+='<h4>Ściąga merytoryczna</h4><ul>'+lista(P.sciaga)+'</ul>'; }
-  if(e.id==="refleksja" && NA_ZYWO()){ var t=tekstyRef("ref"+S.ref); h+='<h4>Odpowiedzi (podgląd tylko dla ciebie)</h4><ul>'+t.map(function(x){return '<li>'+esc(czysc(x))+'</li>';}).join("")+'</ul>'; }
+  if(e.id==="refleksja" && NA_ZYWO()){ var t=tekstyRef("ref"+S.ref); h+='<h4>Odpowiedzi (podgląd tylko dla Ciebie)</h4><ul>'+t.map(function(x){return '<li>'+esc(czysc(x))+'</li>';}).join("")+'</ul>'; }
   h+='<h4>Trudne pytania uczniów</h4>'+T.trudne.map(function(x){ return '<details><summary>'+esc(x.p)+'</summary><p>'+esc(x.o)+'</p></details>'; }).join("");
   h+='<p style="margin-top:1.4em;color:#9c9488;font-size:.85em">Przy otwartej ściądze widać przyciski + i − do ręcznego dopisywania głosów (np. uczniów bez telefonu).</p>';
   $("#panel").innerHTML=h; tik();

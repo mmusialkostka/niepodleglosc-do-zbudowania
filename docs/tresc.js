@@ -14,7 +14,7 @@ window.TRESC = {
     przed: {
       nazwa: "Lekcja przed 11 listopada",
       otwarcie: "Za kilka dni mamy wolne z okazji Święta Niepodległości. Zanim z niego skorzystamy, sprawdźmy, co właściwie świętujemy.",
-      zamkniecie: "Kiedy 11 listopada zobaczycie flagi na ulicach, pomyślcie nie o jednym dniu, ale o latach pracy tysięcy ludzi. I o tym, co wy możecie zbudować."
+      zamkniecie: "Kiedy 11 listopada zobaczycie flagi na ulicach, pomyślcie nie o jednym dniu, ale o latach pracy tysięcy ludzi. I o tym, co Wy możecie zbudować."
     },
     po: {
       nazwa: "Lekcja po 11 listopada",
@@ -57,6 +57,8 @@ window.TRESC = {
   /* Etap 2 – oś czasu */
   os: [
     { data: "7 X 1918", krotko: "7 października", wyd: "Rada Regencyjna (organ powołany przez Niemcy i Austro-Węgry) ogłasza orędzie o niepodległości Polski.", arg: "Pierwsza formalna deklaracja niepodległości." },
+    { data: "28 X 1918", krotko: "28 października", wyd: "W Krakowie powstaje Polska Komisja Likwidacyjna z Wincentym Witosem na czele. Przejmuje władzę od Austriaków w Galicji i na Śląsku Cieszyńskim.", arg: "Pierwszy polski organ, który naprawdę rządził na części ziem polskich." },
+    { data: "31 X 1918", krotko: "31 października", wyd: "Polscy oficerowie pod dowództwem por. Antoniego Stawarza przejmują koszary i rozbrajają garnizon austriacki w Krakowie. Kraków staje się pierwszym wolnym dużym miastem.", arg: "Pierwsze miasto, w którym Polacy sami przejęli władzę i wojsko." },
     { data: "7 XI 1918", krotko: "7 listopada", wyd: "W Lublinie powstaje Tymczasowy Rząd Ludowy Republiki Polskiej z Ignacym Daszyńskim na czele.", arg: "Pierwszy rząd niezależny od zaborców." },
     { data: "10 XI 1918", krotko: "10 listopada", wyd: "Józef Piłsudski, zwolniony z więzienia w Magdeburgu, przyjeżdża do Warszawy.", arg: "Powrót postaci, wokół której mogła skupić się władza." },
     { data: "11 XI 1918", krotko: "11 listopada", wyd: "Rada Regencyjna przekazuje Piłsudskiemu dowództwo wojska. Rozejm w Compiègne. Rozbrajanie Niemców w Warszawie.", arg: "Polska zyskuje własną siłę zbrojną, a zaborcy przegrywają wojnę." },
@@ -101,7 +103,7 @@ window.TRESC = {
   ],
   puentaSymulacji: "W rzeczywistości trzeba było zająć się wszystkimi siedmioma naraz. Dlatego państwa nie zbudował jeden człowiek.",
   pytaniaOmowienie: [
-    "Który wybór był w waszej grupie najtrudniejszy?",
+    "Który wybór był w Waszej grupie najtrudniejszy?",
     "Czy któraś grupa pominęła problem, bez którego reszta się rozpada?",
     "Czy dało się to zrobić po kolei?",
     "Kto musiał się zaangażować, żeby to się udało?"
@@ -130,7 +132,7 @@ window.TRESC = {
   /* Etap 4 – pytanie refleksyjne (wychowawca wybiera jedno) */
   refleksja: [
     "Co dziś wymaga budowania, żeby wspólnota, w której żyjesz, działała?",
-    "Co osoba w twoim wieku może zrobić dla innych ludzi w swojej okolicy?",
+    "Co osoba w Twoim wieku może zrobić dla innych ludzi w swojej okolicy?",
     "Niepodległość to dla mnie…"
   ],
 
@@ -154,7 +156,7 @@ window.TRESC = {
     { imie: "Wojciech Korfanty", lata: "1873–1939", watek: "Śląsk, walka o granicę zachodnią",
       bio: "Syn górnika z Górnego Śląska. Jako poseł do parlamentu niemieckiego bronił praw Polaków. Po wojnie walczył o przyłączenie Śląska do Polski: kierował akcją przed plebiscytem w 1921 r., a potem stanął na czele III powstania śląskiego. Dzięki temu część Górnego Śląska z kopalniami i hutami trafiła do Polski. Był politykiem chrześcijańskiej demokracji i ostrym krytykiem Piłsudskiego, za co później go uwięziono.",
       pytanie: "Czym była dla Polski granica wywalczona na Śląsku?" },
-    { imie: "Pierwsze posłanki", lata: "Sejm Ustawodawczy 1919", watek: "Kobiety w Sejmie Ustawodawczym",
+    { imie: "Zofia Moraczewska i inne pierwsze polskie posłanki", lata: "Sejm Ustawodawczy 1919", watek: "Kobiety w Sejmie Ustawodawczym",
       bio: "Dzięki dekretowi z 28 listopada 1918 r. kobiety mogły głosować i kandydować. W Sejmie Ustawodawczym zasiadło osiem posłanek, m.in. Gabriela Balicka (botaniczka, narodowa demokracja), Zofia Moraczewska (socjalistka) i Irena Kosmowska (ruch ludowy, wcześniej członkini rządu lubelskiego). Pochodziły z różnych, często zwaśnionych ugrupowań. Mimo to współpracowały w sprawach oświaty, opieki nad dziećmi i praw kobiet. Polska przyznała kobietom prawa wyborcze wcześniej niż np. Francja (1944).",
       pytanie: "Co zmieniło się, gdy kobiety zaczęły współdecydować o państwie?" }
   ],

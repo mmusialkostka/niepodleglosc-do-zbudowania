@@ -103,7 +103,7 @@ function qr(t){ var q=qrcode(0,"M"); q.addData(t); q.make(); var n=q.getModuleCo
 var SEK = [
  {id:"instrukcja", nazwa:"Instrukcja w 5 minut", html:function(){
    return '<div class="strona" style="font-size:9.4pt">'+glowka("Instrukcja w 5 minut")+
-   '<h1>Jak przeprowadzić tę lekcję</h1><p class="mdl">Dla wychowawcy, który nie zdąży przeczytać całego scenariusza. Nie musisz być historykiem: aplikacja niesie treść, ty prowadzisz rozmowę.</p>'+
+   '<h1>Jak przeprowadzić tę lekcję</h1><p class="mdl">Dla wychowawcy, który nie zdąży przeczytać całego scenariusza. Nie musisz być historykiem: aplikacja niesie treść, Ty prowadzisz rozmowę.</p>'+
    '<h2>Przed lekcją (15 minut)</h2><ol class="kroki">'+
    '<li><b>Wydrukuj</b> dla każdej grupy (4–6 grup): komplet 7 kart problemów (1 kartka A4, do pocięcia albo w całości) i kartę notatek. Wszystko jest w tym pliku.</li>'+
    '<li><b>Otwórz aplikację</b> na komputerze podłączonym do projektora:<div class="qrdruk">'+qr(strona)+'<div><b style="font-size:12pt;color:var(--tusz)">'+esc(strona.replace(/^https?:\/\//,""))+'</b><br><span class="mdl">Działa w każdej przeglądarce. Jeśli w sali nie ma internetu, pobierz folder z aplikacją i otwórz plik index.html (głosowanie wtedy przez podniesienie rąk).</span></div></div></li>'+
@@ -135,7 +135,7 @@ var SEK = [
  }},
  {id:"scenariusz", nazwa:"Scenariusz dla wychowawcy", html:function(){
    var w=T.warianty;
-   var h='<div class="strona cg">'+glowka("Scenariusz")+'<h1>'+esc(T.tytul)+'</h1><p class="mdl">'+esc(T.podtytul)+'. Klasy I–IV liceum · 45 minut · prowadzi wychowawca (nie musi być historykiem).</p>'+
+   var h='<div class="strona cg">'+glowka("Scenariusz")+'<h1>'+esc(T.tytul)+'</h1><p class="mdl">'+esc(T.podtytul)+'. Klasy I–IV liceum · 45 minut.</p>'+
      '<h2>Idea</h2><p>Uczniowie znają niepodległość jako jeden moment: 11 listopada, Piłsudski, koniec zaborów. Lekcja zmienia tę perspektywę. Niepodległość w 1918 roku nie została „odzyskana” jednego dnia. Była procesem rozłożonym na tygodnie, a potem na lata budowania państwa od zera: z kilkoma walutami, kilkoma systemami prawa, bez ustalonych granic, w biedzie i chorobach. Wniosek wychowawczy: niepodległość trzeba było zbudować i trzeba ją podtrzymywać, a to zadanie wielu ludzi, nie kilku bohaterów.</p>'+
      '<p><b>Cel wychowawczy, nie wiedza.</b> To nie jest lekcja historii. Fakty są pretekstem do rozmowy o państwie, wspólnocie i odpowiedzialności. Nie ma sprawdzania wiedzy ani ocen.</p>'+
      '<h2>Cele lekcji</h2><p>Uczeń po lekcji:</p><ul><li>rozumie, że odzyskanie niepodległości było procesem, a data 11 listopada jest umowna;</li><li>potrafi wymienić kilka problemów, z którymi zmierzyło się państwo w 1918 roku;</li><li>dostrzega, że niepodległość budowali ludzie o różnych, często sprzecznych poglądach;</li><li>formułuje własną odpowiedź na pytanie, co dziś znaczy dbać o wspólne państwo.</li></ul>'+
@@ -171,7 +171,7 @@ var SEK = [
    h+='<div class="strona cg">'+glowka("Scenariusz · etap 5")+'<h2 style="margin-top:0">Etap 5: „Wiele twarzy niepodległości” (10 minut)</h2><p>Wychowawca klika kolejno siedem postaci (ok. 1 minuty na każdą: wątek przewodni i jedno, dwa zdania biogramu). Pytanie przewodnie: '+esc(T.pytanieModuluA.toLowerCase())+'</p><table><tr><th>Postać</th><th>Wątek przewodni</th></tr>'+T.postacie.map(function(p){return '<tr><td><b>'+esc(p.imie)+'</b></td><td>'+esc(p.watek)+'</td></tr>';}).join("")+'</table>'+
      '<h3>Zwrot akcji (3 minuty)</h3><p>Po ostatniej postaci kolejne kliknięcie zmienia portrety na współczesnych polityków różnych ugrupowań ('+T.zwrot.osoby.map(function(o){return esc(o.imie);}).join(", ")+'). Na ekranie pojawia się puenta:</p><div class="ramka cyt">'+esc(T.zwrot.tytul)+' '+esc(T.zwrot.tekst)+' <b>'+esc(T.zwrot.pytanie)+'</b></div><p>Daj klasie chwilę ciszy, potem zapytaj: „Co musiałoby się stać, żeby dziś było podobnie?”. Nie oceniaj polityków ani partii i nie dopuść do sporu o konkretne osoby; wracaj do pytania o współpracę mimo różnic.</p><p class="mdl">Więcej czasu (np. druga godzina): grupy dostają biogramy do druku i przygotowują minutowe prezentacje postaci.</p>'+
      '<h2>Głosowanie telefonami: jak to działa</h2><p>Uczniowie skanują kod QR i otwierają prostą stronę bez logowania. Pytania zmieniają się na telefonach same, gdy wychowawca przechodzi do kolejnych ekranów. Każda lekcja ma osobny kod klasy, a głosy znikają po 6 godzinach. Nie są zbierane imiona ani dane osobowe. Bez internetu aplikacja działa w trybie ręcznym.</p>'+
-     '<h2>Źródła ilustracji</h2><ul class="zrodla">'+Object.keys(FOTO).map(function(k){ var f=FOTO[k]; return '<li>'+esc(f.opis)+'. '+esc(f.autor)+', '+esc(f.licencja)+'. Wikimedia Commons: '+esc(decodeURIComponent(f.zrodlo.replace(/^https:\/\/commons\.wikimedia\.org\/wiki\//,"")))+'</li>'; }).join("")+'</ul></div>';
+     '<h2>Źródła ilustracji</h2><ul class="zrodla">'+Object.keys(FOTO).map(function(k){ var f=FOTO[k]; return '<li>'+esc(f.opis)+'. '+esc(f.autor)+', '+esc(f.licencja)+(/wikimedia/.test(f.zrodlo)?'. Wikimedia Commons: '+esc(decodeURIComponent(f.zrodlo.replace(/^https:\/\/commons\.wikimedia\.org\/wiki\//,""))):'. '+esc(f.zrodlo))+'</li>'; }).join("")+'</ul></div>';
    return h;
  }},
  {id:"biogramy", nazwa:"Biogramy (etap 5)", html:function(){

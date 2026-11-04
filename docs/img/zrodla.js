@@ -263,5 +263,13 @@ window.FOTO = {
   "zrodlo": "https://commons.wikimedia.org/wiki/File:Protest_of_All-Poland_Women%27s_Strike_in_Warsaw_(October_30,_2020)_06.jpg",
   "w": 1600,
   "h": 1600
+ },
+ "rynek": {
+  "opis": "Rynek Główny w Krakowie, dziś",
+  "autor": "Unsplash",
+  "licencja": "licencja Unsplash",
+  "zrodlo": "https://unsplash.com",
+  "w": 1800,
+  "h": 1198
  }
 };
