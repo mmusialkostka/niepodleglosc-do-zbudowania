@@ -5,6 +5,6 @@
    STRONA – publiczny adres tej aplikacji (GitHub Pages). Potrzebny tylko wtedy, gdy ktoś
             otworzy plik index.html z dysku: kod QR i tak musi prowadzić do strony w internecie. */
 window.USTAWIENIA = {
-  ADRES: "",
+  ADRES: "https://script.google.com/macros/s/AKfycby-YhrbY9Y3I5eXyXeR6puPqwDzfTlf-S2sHtDX8DADBNzY0V0gyY-L1WSrwYGwX9DF/exec",
   STRONA: "https://mmusialkostka.github.io/niepodleglosc-do-zbudowania/"
 };
