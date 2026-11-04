@@ -6,43 +6,44 @@
 <title>Niepodległość do zbudowania · materiały do druku</title>
 <link rel="stylesheet" href="fonts/fonty.css">
 <style>
-:root{--tusz:#23211e;--szary:#5f594f;--linia:#d9d0bf;--czerwien:#a3171f;--tlo:#f6f2e9;--serif:"Lora",Georgia,serif;--sans:"Inter",system-ui,"Segoe UI",Arial,sans-serif}
+:root{--tusz:#1a1816;--szary:#5f594f;--linia:#d9d0bf;--czerwien:#c41e2a;--tlo:#1a1816;--serif:"Oswald","Arial Narrow",sans-serif;--sans:"Inter",system-ui,"Segoe UI",Arial,sans-serif}
 *{box-sizing:border-box}
 html{background:var(--tlo)}
 body{margin:0;font-family:var(--sans);color:var(--tusz);font-size:10pt;line-height:1.42}
-h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0}
-nav{position:sticky;top:0;z-index:2;background:var(--tlo);border-bottom:1px solid var(--linia);padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
-nav b{font-family:var(--serif);margin-right:10px}
-nav a,nav button{font:inherit;font-size:13px;border:1px solid #cfc5b2;background:#fffdf8;border-radius:7px;padding:5px 10px;color:var(--tusz);text-decoration:none;cursor:pointer}
-nav a.wl{background:var(--tusz);color:#fff;border-color:var(--tusz)}
+h1,h2,h3{font-family:var(--serif);font-weight:500;margin:0;text-transform:uppercase;letter-spacing:.01em;line-height:1.1}
+nav{position:sticky;top:0;z-index:2;background:#0d0c0b;color:#f2eee7;border-bottom:1px solid #2a2724;padding:12px 20px;display:flex;flex-wrap:wrap;gap:8px;align-items:center;font-size:14px}
+nav b{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.06em;margin-right:10px}
+nav a,nav button{font:inherit;font-size:13px;border:1px solid #3c3834;background:transparent;border-radius:0;padding:5px 10px;color:#f2eee7;text-decoration:none;cursor:pointer}
+nav a.wl{background:#f2eee7;color:#0d0c0b;border-color:#f2eee7}
 nav .gl{background:var(--czerwien);color:#fff;border-color:var(--czerwien);margin-left:auto}
-.strona{width:210mm;min-height:297mm;margin:16px auto;background:#fff;padding:14mm 15mm;box-shadow:0 2px 14px rgba(0,0,0,.08);position:relative}
+.strona{width:210mm;min-height:297mm;margin:16px auto;background:#fff;padding:14mm 15mm;box-shadow:0 2px 24px rgba(0,0,0,.5);position:relative}
 .sek{display:none}.sek.wid{display:block}
-.glowka{white-space:nowrap;gap:10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--tusz);padding-bottom:5px;margin-bottom:12px;font-size:8.5pt;color:var(--szary);letter-spacing:.05em;text-transform:uppercase}
-.glowka b{color:var(--czerwien);font-weight:600}
-h1{font-size:22pt;line-height:1.15;margin-bottom:4px}
+.glowka{white-space:nowrap;gap:10px;display:flex;justify-content:space-between;align-items:baseline;border-bottom:1.5px solid var(--tusz);padding-bottom:5px;margin-bottom:12px;font-family:var(--serif);font-size:8.5pt;color:var(--szary);letter-spacing:.08em;text-transform:uppercase}
+.glowka b{background:var(--czerwien);color:#fff;font-weight:500;padding:1px 6px}
+h1{font-size:26pt;line-height:1.05;margin-bottom:6px}
 h2{font-size:14pt;margin:14px 0 6px}
 h3{font-size:11.5pt;margin:10px 0 4px}
 p{margin:4px 0}
 ul,ol{margin:4px 0;padding-left:18px}
 li{margin:2px 0}
-.ramka{border-left:3px solid var(--czerwien);background:#faf6ee;padding:7px 11px;margin:8px 0}
-.ramka.cyt{font-family:var(--serif);font-style:italic}
+.ramka{border-left:3px solid var(--czerwien);background:#f5f2ed;padding:7px 11px;margin:8px 0}
+.ramka.cyt{font-family:var(--serif);font-weight:300;font-size:11.5pt}
 .mdl{color:var(--szary)}
 table{width:100%;border-collapse:collapse;margin:6px 0}
 td,th{border-top:1px solid var(--linia);padding:5px 6px;vertical-align:top;text-align:left}
-th{font-size:8pt;text-transform:uppercase;letter-spacing:.06em;color:var(--szary);font-weight:600;border-top:0}
-td.cz{white-space:nowrap;color:var(--czerwien);font-weight:600}
+th{font-family:var(--serif);font-size:8.5pt;text-transform:uppercase;letter-spacing:.08em;color:var(--szary);font-weight:400;border-top:0}
+td.cz{white-space:nowrap;color:var(--czerwien);font-family:var(--serif);font-weight:500}
 .kroki li{margin:5px 0}
 .kroki b{color:var(--czerwien)}
 /* karty problemów */
 .karty{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:62mm;gap:0;border:1px dashed #999}
 .kp{border:1px dashed #999;padding:7mm 8mm;display:flex;flex-direction:column;position:relative}
-.kp .nr{font-family:var(--serif);font-size:26pt;color:var(--czerwien);line-height:1;font-weight:600}
-.kp h3{font-size:15pt;margin:2px 0 6px}
+.kp .nr{font-family:var(--serif);font-size:34pt;color:transparent;-webkit-text-stroke:1.2px var(--czerwien);line-height:1;font-weight:500}
+.kp h3{font-size:17pt;margin:2px 0 6px}
 .kp p{font-size:11pt;line-height:1.4}
 .kp .st{margin-top:auto;font-size:7.5pt;color:var(--szary);letter-spacing:.08em;text-transform:uppercase}
-.kp.info{background:#faf6ee}
+.kp.info{background:#1a1816;color:#f2eee7}
+.kp.info .st{color:#a59e93}
 .kp.info p{font-size:9.5pt;line-height:1.35}
 .kp.info h3{font-size:13pt}
 .zet{display:inline-block;width:9mm;height:9mm;border-radius:50%;border:1.5px solid var(--czerwien);margin-right:3mm;vertical-align:middle}
@@ -50,7 +51,7 @@ td.cz{white-space:nowrap;color:var(--czerwien);font-weight:600}
 .notatka{border:1.5px solid var(--tusz);padding:6mm 8mm;height:124mm;display:flex;flex-direction:column}
 .notatka + .notatka{margin-top:6mm}
 .wybor{display:grid;grid-template-columns:12mm 1fr;gap:4mm;margin-top:5mm;flex:1}
-.wybor .z{width:11mm;height:11mm;border-radius:50%;border:1.5px solid var(--czerwien);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;color:var(--czerwien)}
+.wybor .z{width:11mm;height:11mm;border-radius:50%;border:1.5px solid var(--czerwien);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:500;color:var(--czerwien)}
 .linie{border-bottom:1px solid #bbb;height:7.5mm}
 .lin2{display:flex;flex-direction:column}
 .pole{display:flex;gap:4mm;align-items:baseline;font-size:9.5pt}
@@ -59,7 +60,11 @@ td.cz{white-space:nowrap;color:var(--czerwien);font-weight:600}
 .bio{border:1px dashed #999;padding:6mm 7mm;margin-bottom:5mm;break-inside:avoid}
 .bio h3{font-size:14pt;margin:0}
 .bio .lata{color:var(--szary);font-size:9pt}
-.bio .w{font-size:9pt;color:var(--czerwien);text-transform:uppercase;letter-spacing:.06em;margin:3px 0 6px;font-weight:600}
+.bio .w{font-family:var(--serif);font-size:9pt;color:var(--czerwien);text-transform:uppercase;letter-spacing:.08em;margin:3px 0 6px;font-weight:400}
+.bio{display:grid;grid-template-columns:28mm 1fr;gap:6mm}
+.bio img{width:28mm;height:36mm;object-fit:cover;filter:grayscale(1)}
+.zrodla{font-size:8pt;color:var(--szary)}
+.zrodla li{margin:1px 0}
 .bio .pyt{margin-top:7px;font-size:9.5pt}
 .bio ol{font-size:9.5pt;color:var(--szary)}
 .przerwa{break-before:page}
@@ -85,9 +90,11 @@ td.cz{white-space:nowrap;color:var(--czerwien);font-weight:600}
 <script src="tresc.js"></script>
 <script src="ustawienia.js"></script>
 <script src="qrcode.js"></script>
+<script src="img/zrodla.js"></script>
 <script>
 (function(){
 var T=window.TRESC;
+var POSTAC_FOTO=["pilsudski2","dmowski","paderewski","witos","daszynski","korfanty","moraczewska"], FOTO=window.FOTO||{};
 function esc(t){ return String(t==null?"":t).replace(/[&<>"]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c];}); }
 function glowka(t){ return '<div class="glowka"><span><b>Niepodległość do zbudowania</b> · 11 listopada</span><span>'+esc(t)+'</span></div>'; }
 var strona=(function(){ var s=(window.USTAWIENIA||{}).STRONA||""; if(/^https?:/.test(location.protocol)) s=location.href.replace(/[#?].*$/,"").replace(/[^\/]*$/,""); return s; })();
@@ -161,13 +168,14 @@ var SEK = [
 
    h+='<div class="strona cg">'+glowka("Scenariusz · moduły opcjonalne")+'<h2 style="margin-top:0">Moduł A: „Wiele twarzy niepodległości” (15–20 minut)</h2><p>Na drugą godzinę lub zamiast etapu 2. Grupy dostają biogramy i pytania: kim był, jakie miał poglądy, jak przyczynił się do niepodległości, z kim się spierał. Na koniec klasa szuka odpowiedzi na pytanie: '+esc(T.pytanieModuluA.toLowerCase())+'</p><table><tr><th>Postać</th><th>Wątek przewodni</th></tr>'+T.postacie.map(function(p){return '<tr><td><b>'+esc(p.imie)+'</b></td><td>'+esc(p.watek)+'</td></tr>';}).join("")+'</table>'+
      '<h2>Moduł B: „Historia samego święta” (5 minut)</h2><table><tr><th>Rok</th><th>Wydarzenie</th></tr>'+T.historiaSwieta.map(function(x){return '<tr><td class="cz">'+esc(x.rok)+'</td><td>'+esc(x.txt)+'</td></tr>';}).join("")+'</table><div class="ramka">'+esc(T.wniosekB)+'</div>'+
-     '<h2>Głosowanie telefonami: jak to działa</h2><p>Uczniowie skanują kod QR i otwierają prostą stronę bez logowania. Pytania zmieniają się na telefonach same, gdy wychowawca przechodzi do kolejnych ekranów. Każda lekcja ma osobny kod klasy, a głosy znikają po 6 godzinach. Nie są zbierane imiona ani dane osobowe. Bez internetu aplikacja działa w trybie ręcznym.</p></div>';
+     '<h2>Głosowanie telefonami: jak to działa</h2><p>Uczniowie skanują kod QR i otwierają prostą stronę bez logowania. Pytania zmieniają się na telefonach same, gdy wychowawca przechodzi do kolejnych ekranów. Każda lekcja ma osobny kod klasy, a głosy znikają po 6 godzinach. Nie są zbierane imiona ani dane osobowe. Bez internetu aplikacja działa w trybie ręcznym.</p>'+
+     '<h2>Źródła ilustracji</h2><ul class="zrodla">'+Object.keys(FOTO).map(function(k){ var f=FOTO[k]; return '<li>'+esc(f.opis)+'. '+esc(f.autor)+', '+esc(f.licencja)+'. Wikimedia Commons: '+esc(decodeURIComponent(f.zrodlo.replace(/^https:\/\/commons\.wikimedia\.org\/wiki\//,"")))+'</li>'; }).join("")+'</ul></div>';
    return h;
  }},
  {id:"biogramy", nazwa:"Biogramy (moduł A)", html:function(){
    var h='<div class="strona">'+glowka("Moduł A · biogramy do pocięcia")+'<h1 style="font-size:17pt">Wiele twarzy niepodległości</h1><p class="mdl" style="margin-bottom:8px">Przeczytajcie biogram i odpowiedzcie krótko: 1. Kim był(a)? 2. Jakie miał(a) poglądy? 3. Jak przyczynił(a) się do niepodległości? 4. Z kim się spierał(a)?</p>';
    T.postacie.forEach(function(p,i){ if(i===3||i===6) h+='</div><div class="strona">'+glowka("Moduł A · biogramy do pocięcia");
-     h+='<div class="bio"><h3>'+esc(p.imie)+'</h3><div class="lata">'+esc(p.lata)+'</div><div class="w">'+esc(p.watek)+'</div><p>'+esc(p.bio)+'</p><p class="pyt"><b>Pytanie dla grupy:</b> '+esc(p.pytanie)+'</p></div>'; });
+     h+='<div class="bio"><img src="img/'+POSTAC_FOTO[i]+'.jpg" alt=""><div><h3>'+esc(p.imie)+'</h3><div class="lata">'+esc(p.lata)+'</div><div class="w">'+esc(p.watek)+'</div><p>'+esc(p.bio)+'</p><p class="pyt"><b>Pytanie dla grupy:</b> '+esc(p.pytanie)+'</p></div></div>'; });
    return h+'<div class="ramka"><b>Na koniec cała klasa:</b> '+esc(T.pytanieModuluA)+'</div></div>';
  }}
 ];

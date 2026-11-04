@@ -3,43 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#f6f2e9">
+<meta name="theme-color" content="#0d0c0b">
 <title>Niepodległość do zbudowania · głosowanie</title>
 <link rel="stylesheet" href="fonts/fonty.css">
 <style>
-:root{--tlo:#f6f2e9;--papier:#fffdf8;--tusz:#23211e;--szary:#6c665c;--linia:#e2dacb;--linia2:#d3c9b5;--czerwien:#a3171f;--zielen:#2f6b4f;--zielenTlo:#e3efe7;
-  --serif:"Lora",Georgia,serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+:root{--tlo:#0d0c0b;--papier:#1a1816;--tusz:#f2eee7;--szary:#a59e93;--linia:#2a2724;--linia2:#3c3834;--czerwien:#dc2f3b;--zielen:#7fd3a6;--zielenTlo:rgba(63,191,127,.12);
+  --serif:"Oswald","Arial Narrow",sans-serif;--sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 *{box-sizing:border-box}
 html,body{margin:0;background:var(--tlo);color:var(--tusz);font-family:var(--sans);font-size:17px;line-height:1.45}
 button,input{font:inherit;color:inherit}
 header{display:flex;align-items:center;gap:10px;padding:14px 16px;border-bottom:1px solid var(--linia)}
-header .pas{width:22px;height:15px;display:flex;flex-direction:column;border:1px solid var(--linia2)}
+header .pas{width:22px;height:15px;display:flex;flex-direction:column}
 header .pas i{flex:1;background:#fff}header .pas i+i{background:var(--czerwien)}
-header b{font-family:var(--serif);font-weight:600}
+header b{font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.05em;font-size:.95em}
 header span{margin-left:auto;font-size:.8em;color:var(--szary)}
 main{padding:20px 16px 40px;max-width:560px;margin:0 auto}
-h1{font-family:var(--serif);font-weight:600;font-size:1.35em;line-height:1.3;margin:0 0 18px}
-.etyk{font-size:.72em;letter-spacing:.14em;text-transform:uppercase;color:var(--czerwien);font-weight:600;margin-bottom:8px}
+h1{font-family:var(--serif);font-weight:500;font-size:1.75em;line-height:1.12;margin:0 0 20px;text-transform:uppercase}
+.etyk{display:inline-block;font-family:var(--serif);font-size:.75em;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--czerwien);padding:2px 8px;margin-bottom:12px}
 .czekaj{text-align:center;padding:48px 8px;color:var(--szary)}
 .czekaj .k{width:12px;height:12px;border-radius:50%;background:var(--czerwien);margin:0 auto 18px;animation:p 1.6s infinite}
 @keyframes p{0%,100%{opacity:.25;transform:scale(.8)}50%{opacity:1;transform:scale(1)}}
 .opc{display:flex;flex-direction:column;gap:10px}
-.opc button{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;text-align:left;background:var(--papier);border:1.5px solid var(--linia2);border-radius:12px;padding:14px;min-height:56px}
-.opc button b{font-family:var(--serif);color:var(--czerwien);font-size:1.15em}
-.opc button.wyb{border-color:var(--tusz);background:var(--tusz);color:#fff}
+.opc button{display:grid;grid-template-columns:30px 1fr;gap:10px;align-items:center;text-align:left;background:var(--papier);border:1.5px solid var(--linia2);border-radius:0;padding:14px;min-height:58px}
+.opc button b{font-family:var(--serif);color:var(--czerwien);font-size:1.3em;font-weight:500}
+.opc button.wyb{border-color:var(--czerwien);background:var(--czerwien);color:#fff}
 .opc button.wyb b{color:#fff}
-.ok{margin-top:16px;background:var(--zielenTlo);color:var(--zielen);border-radius:10px;padding:10px 14px;font-size:.9em}
-.blad{margin-top:16px;background:#f6e4e2;color:var(--czerwien);border-radius:10px;padding:10px 14px;font-size:.9em}
+.ok{margin-top:16px;background:var(--zielenTlo);color:var(--zielen);border-radius:0;padding:10px 14px;font-size:.9em}
+.blad{margin-top:16px;background:rgba(220,47,59,.15);color:#ff7a83;border-radius:0;padding:10px 14px;font-size:.9em}
 .suwak{margin:28px 4px 8px}
 input[type=range]{width:100%;height:36px;accent-color:var(--czerwien)}
 .krance{display:flex;justify-content:space-between;font-size:.78em;color:var(--szary);gap:16px}
 .krance span:last-child{text-align:right}
-.wart{text-align:center;font-family:var(--serif);font-size:1.1em;margin:14px 0 4px;min-height:1.5em}
-.wyslij{width:100%;margin-top:18px;background:var(--czerwien);color:#fff;border:0;border-radius:12px;padding:14px;font-weight:600;font-size:1em}
+.wart{text-align:center;font-family:var(--serif);text-transform:uppercase;letter-spacing:.05em;font-size:1.2em;margin:14px 0 4px;min-height:1.5em}
+.wyslij{width:100%;margin-top:18px;background:var(--czerwien);color:#fff;border:0;border-radius:0;padding:15px;font-family:var(--serif);font-weight:500;text-transform:uppercase;letter-spacing:.08em;font-size:1.05em}
 .wyslij[disabled]{opacity:.5}
-textarea,.kod input{width:100%;border:1.5px solid var(--linia2);border-radius:12px;padding:12px 14px;background:var(--papier);font-size:1.05em;resize:none}
+textarea,.kod input{width:100%;border:1.5px solid var(--linia2);border-radius:0;padding:12px 14px;background:var(--papier);color:var(--tusz);font-size:1.05em;resize:none}
 .licz{font-size:.75em;color:var(--szary);text-align:right;margin-top:4px}
-.kod input{text-transform:uppercase;letter-spacing:.2em;text-align:center;font-family:var(--serif);font-size:1.5em}
+.kod input{text-transform:uppercase;letter-spacing:.2em;text-align:center;font-family:var(--serif);font-size:1.6em;margin-bottom:4px}
 .mdl{color:var(--szary);font-size:.9em}
 footer{text-align:center;font-size:.72em;color:var(--szary);padding:0 16px 24px}
 </style>

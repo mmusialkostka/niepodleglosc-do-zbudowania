@@ -33,6 +33,7 @@ Bez internetu i bez telefonów lekcja działa w trybie ręcznym (głosy wpisuje 
 - `docs/druk.html` – materiały do druku (instrukcja, scenariusz, karty, karta notatek, biogramy); gotowe PDF-y w `docs/pdf/`
 - `docs/tresc.js` – **wszystkie teksty lekcji** w jednym miejscu (do poprawiania)
 - `docs/ustawienia.js` – adres zaplecza do głosowania
+- `docs/img/` – zdjęcia z 1918–1921 i ich opisy (`zrodla.js`)
 - `docs/Kod.gs` – zaplecze do głosowania telefonami (Google Apps Script, bez arkusza i bez danych osobowych)
 
 ## Własna kopia (inna szkoła)
@@ -46,4 +47,4 @@ Bez internetu i bez telefonów lekcja działa w trybie ręcznym (głosy wpisuje 
 `python serwer_testowy.py docs 8810` uruchamia stronę z atrapą zaplecza pod `/mock`
 (do testów wpisz tymczasowo `ADRES: "/mock"` w `ustawienia.js`).
 
-Materiał uniwersalny, bez odniesień do konkretnej szkoły. Kod QR: biblioteka qrcode-generator (Kazuhiko Arase, licencja MIT). Kroje: Lora i Inter (SIL Open Font License).
+Materiał uniwersalny, bez odniesień do konkretnej szkoły. Kod QR: biblioteka qrcode-generator (Kazuhiko Arase, licencja MIT). Kroje: Oswald, Inter i Lora (SIL Open Font License). Zdjęcia z epoki: Wikimedia Commons, domena publiczna i CC0 (lista w `docs/img/zrodla.js` i w scenariuszu).
